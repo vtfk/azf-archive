@@ -13,13 +13,13 @@ async function getContactPersons (parameters) {
   }
 
   const client = p360(options)
-  const caseService = await client.ContactService()
+  const contactService = await client.ContactService()
 
-  const contactQuery = {
+  const query = {
     parameter: { ...parameters }
   }
 
-  const { result: { GetContactPersonsResult } } = await caseService.GetContactPersons(contactQuery)
+  const { result: { GetContactPersonsResult } } = await contactService.GetContactPersons(query)
   if (!GetContactPersonsResult || !GetContactPersonsResult.Successful) {
     throw Error(GetContactPersonsResult || 'Unknown error - query failed')
   }
