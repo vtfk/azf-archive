@@ -14,11 +14,11 @@ async function getEnterprises (parameters) {
   const client = p360(options)
   const contactService = await client.ContactService()
 
-  const contactQuery = {
+  const query = {
     parameter: { ...parameters }
   }
 
-  const { result: { GetEnterprisesResult } } = await contactService.GetEnterprises(contactQuery)
+  const { result: { GetEnterprisesResult } } = await contactService.GetEnterprises(query)
   if (!GetEnterprisesResult || !GetEnterprisesResult.Successful) {
     throw Error(GetEnterprisesResult || 'Unknown error - query failed')
   }
