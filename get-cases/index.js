@@ -1,10 +1,9 @@
-const p360 = require('@alheimsins/p360')
+const p360 = require('@alheimsins/p360')
+
 function unwrap (caseResult, onlyOpenCases) {
   const cases = caseResult.Cases && caseResult.Cases.CaseResult ? caseResult.Cases.CaseResult : []
 
-  if (cases.length === 0) {
-    return cases
-  } else if (onlyOpenCases && Array.isArray(cases)) {
+  if (onlyOpenCases && Array.isArray(cases)) {
     return cases.find(({ Status }) => Status === 'Under behandling')
   } else {
     return cases
