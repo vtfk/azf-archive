@@ -1,4 +1,5 @@
-const p360 = require('@alheimsins/p360')
+const p360 = require('@alheimsins/p360')
+
 function unwrap (privatePersons = {}) {
   const persons = privatePersons.PrivatePersons && privatePersons.PrivatePersons.PrivatePersonResult ? privatePersons.PrivatePersons.PrivatePersonResult : []
   return persons
@@ -12,13 +13,13 @@ async function getPrivatePersons (parameters) {
   }
 
   const client = p360(options)
-  const caseService = await client.ContactService()
+  const contactService = await client.ContactService()
 
-  const contactQuery = {
+  const query = {
     parameter: { ...parameters }
   }
 
-  const { result: { GetPrivatePersonsResult } } = await caseService.GetPrivatePersons(contactQuery)
+  const { result: { GetPrivatePersonsResult } } = await contactService.GetPrivatePersons(query)
   if (!GetPrivatePersonsResult || !GetPrivatePersonsResult.Successful) {
     throw Error('Unknown error - query failed')
   }
