@@ -2,33 +2,6 @@
 
 Azure function for p360
 
-## Input
-
-```json
-{
-  "fnr": 12345678910
-}
-```
-
-
-## Output
-
-Case found:
-
-```json
-{
-  "caseNumber": "18/1234"
-}
-```
-
-Case not found:
-
-```json
-{
-   "caseNumber": ""
-}
-```
-
 ## local.settings.json
 
 ```json
