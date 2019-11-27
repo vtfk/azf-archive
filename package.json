@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/vtfk/azf-p360#readme",
   "dependencies": {
-    "@alheimsins/p360": "1.0.0"
+    "@alheimsins/p360": "1.0.2"
   },
   "devDependencies": {
     "ava": "2.4.0",
