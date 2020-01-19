@@ -30,7 +30,7 @@
     "@alheimsins/p360": "1.0.2"
   },
   "devDependencies": {
-    "ava": "2.4.0",
+    "ava": "3.0.0",
     "husky": "4.0.10",
     "standard": "14.3.1"
   }
