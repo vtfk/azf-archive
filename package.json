@@ -32,6 +32,6 @@
   "devDependencies": {
     "ava": "3.15.0",
     "husky": "6.0.0",
-    "standard": "14.3.4"
+    "standard": "15.0.1"
   }
 }
