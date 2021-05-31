@@ -1,21 +1,31 @@
 {
   "name": "azf-p360-get-student-case",
-  "version": "1.0.0",
-  "description": "Azure function for p360",
+  "version": "2.0.0",
+  "description": "Azure function for P360",
   "main": "index.js",
   "scripts": {
     "test": "standard && npm audit && ava",
+    "test:offline": "standard && ava",
     "start": "func start"
   },
   "author": {
-    "name": "Jonas Enge",
-    "email": "jonas.enge@gmail.com",
-    "url": "https://github.com/maccyber"
+    "name": "Rune Moskvil Lyngås",
+    "email": "rune.moskvil.lyngaas@vtfk.no",
+    "url": "https://github.com/runely"
   },
+  "contributors": [
+    {
+      "name": "Jonas Enge",
+      "email": "jonas.enge@gmail.com",
+      "url": "https://github.com/maccyber"
+    }
+  ],
   "keywords": [
     "p360",
     "azure",
-    "functions"
+    "functions",
+    "soap",
+    "SIF"
   ],
   "license": "MIT",
   "repository": {
