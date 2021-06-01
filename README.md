@@ -51,7 +51,8 @@ Optional fields:
   "method": "GetCases",
   "secure": false, // this can be undefined, removed, empty string or 0 as well
   "parameter": {
-    "PersonalIdNumber": "01010101010"
+    "ContactReferenceNumber": "01010101010",
+    "Title": "Elevmappe"
   },
   "options": {
     "onlyOpenCases": true // If true, only cases with Status === 'Under behandling' will be returned; If false or undefined, all cases will be returned
