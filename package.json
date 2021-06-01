@@ -24,7 +24,7 @@
     "p360",
     "azure",
     "functions",
-    "soap",
+    "RPC",
     "SIF"
   ],
   "license": "MIT",
