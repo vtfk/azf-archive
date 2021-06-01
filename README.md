@@ -4,7 +4,7 @@ Azure function for P360
 
 ## API
 
-### ```GET /call```
+### ```GET /archive```
 
 Common endpoint for all calls. 
 
