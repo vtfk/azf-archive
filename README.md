@@ -60,6 +60,46 @@ Optional fields:
 }
 ```
 
+#### Supported **services** and their **methods**
+
+All **services** has a `ping` endpoint which can be used to test that you have access to the service, that it is correctly installed, and that your user has at least read permission to P360.
+If it returns without throwing an exception, the service is ok.
+
+- **AccessGroupService**
+  - *GetAccessGroups*
+- **CaseService**
+  - *CreateCase*
+  - *GetCases*
+  - *UpdateCase*
+- **ContactService**
+  - *GetContactPersons*
+  - *GetEnterprises*
+  - *GetPrivatePersons*
+  - *SynchronizeContactPerson*
+  - *SynchronizeEnterprise*
+  - *SynchronizePrivatePerson*
+- **DocumentService**
+  - *CreateDocument*
+  - *GetDocuments*
+  - *SignOffDocument*
+  - *UpdateDocument*
+- **EstateService**
+  - *GetEstates*
+  - *SynchronizeEstate*
+- **FileService**
+  - *CheckOutAndGetFileForExternalControl*
+  - *Upload*
+  - *UploadAndCheckInFileFromExternalControl*
+- **MyCasesService**
+  - *GetMyCases*
+- **ProjectService**
+  - *CreateProject*
+  - *GetProjects*
+  - *UpdateProject*
+- **UserService**
+  - *GetUsers*
+  - *SynchronizeUser*
+
 ## local.settings.json
 
 ```json
