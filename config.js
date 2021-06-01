@@ -7,8 +7,11 @@ module.exports = {
     PORT: process.env.PAPERTRAIL_PORT
   },
   P360: {
-    baseUrl: process.env.P360_URL,
-    username: process.env.P360_USERNAME,
-    password: process.env.P360_PASSWORD
+    host: process.env.P360_BASE_URL,
+    authkey: process.env.P360_TOKEN
+  },
+  P360_SECURE: {
+    host: process.env.P360_SECURE_BASE_URL,
+    authkey: process.env.P360_SECURE_TOKEN
   }
 }

@@ -37,8 +37,8 @@
   },
   "homepage": "https://github.com/vtfk/azf-p360#readme",
   "dependencies": {
-    "@alheimsins/p360": "1.0.4",
     "@vtfk/logger": "2.5.2",
+    "@vtfk/p360": "1.1.2",
     "jsonwebtoken": "8.5.1"
   },
   "devDependencies": {
