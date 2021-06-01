@@ -55,7 +55,7 @@ Optional fields:
     "Title": "Elevmappe"
   },
   "options": {
-    "onlyOpenCases": true // If true, only cases with Status === 'Under behandling' will be returned; If false or undefined, all cases will be returned
+    "onlyOpenCases": true // If true, only cases with Status === 'Under behandling' will be returned; If false or undefined, all cases will be returned regardless of Status
   }
 }
 ```
