@@ -6,6 +6,7 @@
   "scripts": {
     "test": "standard && npm audit && ava",
     "test:offline": "standard && ava",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "start": "func start"
   },
   "author": {
