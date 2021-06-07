@@ -4,7 +4,7 @@ Azure function for archive operations in P360
 
 ## API
 
-### ```GET /archive```
+### ```POST /archive```
 
 Common endpoint for all calls. 
 
@@ -14,7 +14,7 @@ Required fields:
 - `parameter`: Parameters for calling ***service.method***
 
 Optional fields:
-- `secure`: If true, SECURE P360 will be used; If false or undefined, regular P360 will be used
+- `secure`: If true, `SECURE P360` will be used; If false or undefined, `REGULAR P360` will be used
 - `options`: JSON Object for repack options
 
 #### `Secure`
@@ -49,7 +49,6 @@ Optional fields:
 {
   "service": "CaseService",
   "method": "GetCases",
-  "secure": false, // this can be undefined, removed, empty string or 0 as well
   "parameter": {
     "ContactReferenceNumber": "01010101010",
     "Title": "Elevmappe"
@@ -100,6 +99,8 @@ If it returns without throwing an exception, the service is ok.
   - *GetUsers*
   - *SynchronizeUser*
 
+Full documentation for the **SIF services** can be found [here](https://github.com/vtfk/azf-archive/blob/master/docs/sif-generic-web-service.pdf)
+
 ## local.settings.json
 
 ```json
@@ -114,7 +115,7 @@ If it returns without throwing an exception, the service is ok.
     "P360_SECURE_TOKEN": "bla-bla-bla-bla-123",
     "PAPERTRAIL_DISABLE_LOGGING": false,
     "PAPERTRAIL_HOST": "logger.papertrailapp.com",
-    "PAPERTRAIL_HOSTNAME": "azf-p360",
+    "PAPERTRAIL_HOSTNAME": "azf-archive",
     "PAPERTRAIL_PORT": 12345
   }
 }
