@@ -1,4 +1,5 @@
-require('./import-envs')()
+require('./lib/mock-envs')()
+
 const services = require('../lib/get-service')
 const { P360, P360_SECURE } = require('../config')
 
