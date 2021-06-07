@@ -19,7 +19,10 @@
 name: Deploy to Azure Functions - TEST
 
 on:
-  [push]
+  workflow_dispatch:
+  push:
+    branches:
+      - master
 
 env:
   AZURE_FUNCTIONAPP_NAME: test-func-archive-api-v1    # set this to your application's name
