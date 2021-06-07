@@ -1,6 +1,6 @@
-# (WIP) azf-p360
+# (WIP) azf-archive
 
-Azure function for P360
+Azure function for archive operations in P360
 
 ## API
 
