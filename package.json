@@ -1,7 +1,7 @@
 {
-  "name": "azf-p360",
+  "name": "azf-archive",
   "version": "2.0.0",
-  "description": "Azure function for P360",
+  "description": "Azure function for archive operations in P360",
   "main": "index.js",
   "scripts": {
     "test": "standard && jest && npm audit",
@@ -22,6 +22,7 @@
     }
   ],
   "keywords": [
+    "archive",
     "p360",
     "azure",
     "functions",
@@ -31,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vtfk/azf-p360.git"
+    "url": "git+https://github.com/vtfk/azf-archive.git"
   },
   "bugs": {
-    "url": "https://github.com/vtfk/azf-p360/issues"
+    "url": "https://github.com/vtfk/azf-archive/issues"
   },
-  "homepage": "https://github.com/vtfk/azf-p360#readme",
+  "homepage": "https://github.com/vtfk/azf-archive#readme",
   "dependencies": {
     "@vtfk/logger": "2.5.2",
     "@vtfk/p360": "1.1.2",
