@@ -4,6 +4,8 @@ Azure function for archive operations in P360
 
 ## API
 
+All calls needs a valid JWT as a Bearer token
+
 ### ```POST /archive```
 
 Common endpoint for all calls. 
@@ -61,9 +63,6 @@ Optional fields:
 
 #### Supported **services** and their **methods**
 
-All **services** has a `ping` endpoint which can be used to test that you have access to the service, that it is correctly installed, and that your user has at least read permission to P360.
-If it returns without throwing an exception, the service is ok.
-
 - **AccessGroupService**
   - *GetAccessGroups*
 - **CaseService**
@@ -77,8 +76,10 @@ If it returns without throwing an exception, the service is ok.
   - *SynchronizeContactPerson*
   - *SynchronizeEnterprise*
   - *SynchronizePrivatePerson*
+  - *UpdatePrivatePerson*
 - **DocumentService**
   - *CreateDocument*
+  - *DispatchDocuments*
   - *GetDocuments*
   - *SignOffDocument*
   - *UpdateDocument*
@@ -87,8 +88,13 @@ If it returns without throwing an exception, the service is ok.
   - *SynchronizeEstate*
 - **FileService**
   - *CheckOutAndGetFileForExternalControl*
+  - *CreateFile*
+  - *DeleteFile*
+  - *GetFileWithMetadata*
+  - *GetFile*
   - *Upload*
   - *UploadAndCheckInFileFromExternalControl*
+  - *UploadFile*
 - **MyCasesService**
   - *GetMyCases*
 - **ProjectService**
