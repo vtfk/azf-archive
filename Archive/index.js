@@ -1,11 +1,18 @@
-const { logger } = require('@vtfk/logger')
-const withTokenAuth = require('../lib/auth/with-token-auth')
+const { logConfig, logger } = require('@vtfk/logger')
 const getService = require('../lib/get-service')
 const getQuery = require('../lib/get-query')
 const repackResult = require('../lib/repack-result')
 const HTTPError = require('../lib/http-error')
 
-const callService = async (context, req) => {
+module.exports = async (context, req) => {
+  logConfig({
+    prefix: `${context.invocationId}`,
+    azure: {
+      context,
+      excludeInvocationId: true
+    }
+  })
+
   if (!req.body) {
     logger('error', ['Please pass a request body'])
     return new HTTPError(400, 'Please pass a request body').toJSON()
@@ -38,5 +45,3 @@ const callService = async (context, req) => {
     return new HTTPError(400, error.message).toJSON()
   }
 }
-
-module.exports = async (context, req) => withTokenAuth(context, req, callService)
