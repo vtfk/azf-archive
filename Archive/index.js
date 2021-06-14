@@ -5,14 +5,6 @@ const repackResult = require('../lib/repack-result')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async (context, req) => {
-  logConfig({
-    prefix: `${context.invocationId}`,
-    azure: {
-      context,
-      excludeInvocationId: true
-    }
-  })
-
   if (!req.body) {
     logger('error', ['Please pass a request body'])
     return new HTTPError(400, 'Please pass a request body').toJSON()
@@ -32,11 +24,21 @@ module.exports = async (context, req) => {
     return new HTTPError(400, 'Missing required parameter \'parameter\'').toJSON()
   }
 
+  logConfig({
+    prefix: `${context.invocationId} - ${service} - ${method}${secure ? ' - secure' : ''}`,
+    azure: {
+      context,
+      excludeInvocationId: true
+    }
+  })
+
   try {
     const clientService = getService(service, secure)
     const query = getQuery(parameter)
+    logger('info', ['parameters', query && query.parameter ? Object.getOwnPropertyNames(query.parameter).length : 0])
     const data = await clientService[method](query)
     const repacked = repackResult(data, options)
+    logger('info', [Array.isArray(repacked) ? `${repacked.length} results` : typeof repacked === 'object' ? '1 result' : '0 results', 'options', options])
     return {
       body: repacked
     }
