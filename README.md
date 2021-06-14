@@ -4,11 +4,11 @@ Azure function for archive operations in P360
 
 ## API
 
-All calls needs a valid JWT as a Bearer token
+All calls needs a valid Azure Subscription key
 
 ### ```POST /archive```
 
-Common endpoint for all calls. 
+Common endpoint for all calls.
 
 Required fields:
 - `service`: Which ***SIF service*** to use
