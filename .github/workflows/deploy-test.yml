@@ -21,6 +21,7 @@ name: Deploy to Azure Functions - TEST
 on:
   workflow_dispatch:
   push:
+    branches: '**'
   pull_request:
 
 env:
