@@ -40,7 +40,7 @@ const methods = [
 ]
 
 methods.forEach(({ method, limit }) => {
-  test(`Method '${method}' should set 'limit' to 1`, () => {
+  test(`Method '${method}' should ${limit ? 'set \'limit\' to 1' : 'should have \'limit\' undefined'}`, () => {
     const options = getOptions({}, method)
     expect(typeof options).toBe('object')
     if (limit) {
