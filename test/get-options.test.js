@@ -1,7 +1,5 @@
 const getOptions = require('../lib/get-options')
 
-// (Create)|(Update)|(Synchronize)|(SignOff)|(Delete)|(GetFile)|(Upload)
-
 const methods = [
   {
     method: 'CreateCase',
