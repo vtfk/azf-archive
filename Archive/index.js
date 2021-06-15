@@ -1,6 +1,7 @@
 const { logConfig, logger } = require('@vtfk/logger')
 const getService = require('../lib/get-service')
 const getQuery = require('../lib/get-query')
+const getOptions = require('../lib/get-options')
 const repackResult = require('../lib/repack-result')
 const HTTPError = require('../lib/http-error')
 
@@ -37,8 +38,9 @@ module.exports = async (context, req) => {
     const query = getQuery(parameter)
     logger('info', ['parameters', query && query.parameter ? Object.getOwnPropertyNames(query.parameter).length : 0])
     const data = await clientService[method](query)
-    const repacked = repackResult(data, options)
-    logger('info', [Array.isArray(repacked) ? `${repacked.length} results` : typeof repacked === 'object' ? '1 result' : '0 results', 'options', options])
+    const opts = getOptions(options, method)
+    const repacked = repackResult(data, opts)
+    logger('info', [Array.isArray(repacked) ? `${repacked.length} results` : typeof repacked === 'object' ? '1 result' : '0 results', 'options', opts])
     return {
       body: repacked
     }
