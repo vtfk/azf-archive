@@ -40,6 +40,10 @@ module.exports = async (context, req) => {
     const data = await clientService[method](query)
     const opts = getOptions(options, method)
     const repacked = repackResult(data, opts)
+    if (repacked.ErrorMessage) {
+      logger('error', ['Error received from P360', repacked.ErrorMessage])
+      return new HTTPError(500, repacked).toJSON()
+    }
     logger('info', [Array.isArray(repacked) ? `${repacked.length} results` : typeof repacked === 'object' ? '1 result' : '0 results', 'options', opts])
     return {
       body: repacked
