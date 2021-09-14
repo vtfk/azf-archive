@@ -167,6 +167,16 @@ const getCase = {
   TotalPageCount: 1
 }
 
+const resultCreateCaseWithErrorMessage = repackResult({
+  ErrorDetails: null,
+  ErrorMessage: 'Error occured in the mainframe :-O',
+  Recno: 123456,
+  CaseNumber: '40/12345',
+  Successful: true,
+  TotalCount: 1,
+  TotalPageCount: 1
+})
+
 test('PrivatePerson result is Array', () => {
   expect(Array.isArray(resultPrivatePerson)).toBe(true)
 })
@@ -231,4 +241,17 @@ test('GetCase result with limit not set is returned as Array with 3 items', () =
   expect(result[1].CaseNumber).toBe('40/12346')
   expect(result[2].Recno).toBe(123458)
   expect(result[2].CaseNumber).toBe('40/12347')
+})
+
+test('CreateCase result with ErrorMessage is Object', () => {
+  expect(typeof resultCreateCaseWithErrorMessage).toBe('object')
+})
+
+test('CreateCase result with ErrorMessage has one property only', () => {
+  expect(Object.getOwnPropertyNames(resultCreateCaseWithErrorMessage)).toStrictEqual(['ErrorMessage'])
+})
+
+test('CreateCase result with ErrorMessage has a "ErrorMessage" property', () => {
+  expect(typeof resultCreateCaseWithErrorMessage.ErrorMessage).toBe('string')
+  expect(resultCreateCaseWithErrorMessage.ErrorMessage).toBe('Error occured in the mainframe :-O')
 })

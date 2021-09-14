@@ -42,7 +42,7 @@ test('Regular P360 connection is returned when secure is set to false', () => {
   expect(service.url).toBe(P360.host)
 })
 
-test('Regular P360 connection is returned when secure is set to ""', () => {
+test('Regular P360 connection is returned when secure is set to an empty String', () => {
   const service = services('UserService', '')
   expect(service.url).toBe(P360.host)
 })
