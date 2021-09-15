@@ -43,6 +43,16 @@ const resultCreateCase = repackResult({
   TotalPageCount: 1
 })
 
+const resultCreateCaseWithWeirdErrorMessage = repackResult({
+  ErrorDetails: null,
+  ErrorMessage: '\n',
+  Recno: 123456,
+  CaseNumber: '40/12345',
+  Successful: true,
+  TotalCount: 1,
+  TotalPageCount: 1
+})
+
 const getCase = {
   Cases: [
     {
@@ -254,4 +264,8 @@ test('CreateCase result with ErrorMessage has one property only', () => {
 test('CreateCase result with ErrorMessage has a "ErrorMessage" property', () => {
   expect(typeof resultCreateCaseWithErrorMessage.ErrorMessage).toBe('string')
   expect(resultCreateCaseWithErrorMessage.ErrorMessage).toBe('Error occured in the mainframe :-O')
+})
+
+test('CreateCase result with ErrorMessage has a "ErrorMessage" property, which is "\\n"', () => {
+  expect(typeof resultCreateCaseWithWeirdErrorMessage.ErrorMessage).toBe('undefined')
 })
