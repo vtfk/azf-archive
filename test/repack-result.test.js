@@ -266,6 +266,6 @@ test('CreateCase result with ErrorMessage has a "ErrorMessage" property', () => 
   expect(resultCreateCaseWithErrorMessage.ErrorMessage).toBe('Error occured in the mainframe :-O')
 })
 
-test('CreateCase result with ErrorMessage has a "ErrorMessage" property, which is "\\n"', () => {
+test('CreateCase result with ErrorMessage "\n" do not have "ErrorMessage" property', () => {
   expect(typeof resultCreateCaseWithWeirdErrorMessage.ErrorMessage).toBe('undefined')
 })
