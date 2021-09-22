@@ -3,6 +3,7 @@ const getService = require('../lib/get-service')
 const getQuery = require('../lib/get-query')
 const getOptions = require('../lib/get-options')
 const repackResult = require('../lib/repack-result')
+const getResponseObject = require('../lib/get-response-object')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async (context, req) => {
@@ -45,9 +46,7 @@ module.exports = async (context, req) => {
       return new HTTPError(500, repacked).toJSON()
     }
     logger('info', [Array.isArray(repacked) ? `${repacked.length} results` : typeof repacked === 'object' ? '1 result' : '0 results', 'options', opts])
-    return {
-      body: repacked
-    }
+    return getResponseObject(repacked)
   } catch (error) {
     logger('error', [error])
     return new HTTPError(400, error.message).toJSON()
