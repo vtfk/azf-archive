@@ -1,8 +1,5 @@
 const { logConfig, logger } = require('@vtfk/logger')
-const getService = require('../lib/get-service')
-const getQuery = require('../lib/get-query')
-const getOptions = require('../lib/get-options')
-const repackResult = require('../lib/repack-result')
+const callArchive = require('../lib/call-archive')
 const getResponseObject = require('../lib/get-response-object')
 const HTTPError = require('../lib/http-error')
 
@@ -35,20 +32,17 @@ module.exports = async (context, req) => {
   })
 
   try {
-    const clientService = getService(service, secure)
-    const query = getQuery(parameter)
-    logger('info', ['parameters', query && query.parameter ? Object.getOwnPropertyNames(query.parameter).length : 0])
-    const data = await clientService[method](query)
-    const opts = getOptions(options, method)
-    const repacked = repackResult(data, opts)
-    if (repacked.ErrorMessage) {
-      logger('error', ['Error received from P360', repacked.ErrorMessage])
-      return new HTTPError(500, repacked).toJSON()
-    }
-    logger('info', [Array.isArray(repacked) ? `${repacked.length} results` : typeof repacked === 'object' ? '1 result' : '0 results', 'options', opts])
+    const repacked = await callArchive({
+      service,
+      method,
+      secure,
+      parameter,
+      extras: options
+    })
     return getResponseObject(repacked)
   } catch (error) {
     logger('error', [error])
+    if (error instanceof HTTPError) return error.toJSON()
     return new HTTPError(400, error.message).toJSON()
   }
 }
