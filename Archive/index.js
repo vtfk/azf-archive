@@ -4,6 +4,14 @@ const getResponseObject = require('../lib/get-response-object')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async (context, req) => {
+  logConfig({
+    prefix: `${context.invocationId} - ${context.bindingData.sys.methodName}`,
+    azure: {
+      context,
+      excludeInvocationId: true
+    }
+  })
+
   if (!req.body) {
     logger('error', ['Please pass a request body'])
     return new HTTPError(400, 'Please pass a request body').toJSON()
@@ -11,20 +19,20 @@ module.exports = async (context, req) => {
 
   const { service, method, secure, options, parameter } = req.body
   if (!service) {
-    logger('error', ['Missing required parameter \'service\''])
-    return new HTTPError(400, 'Missing required parameter \'service\'').toJSON()
+    logger('error', ['Missing required parameter "service"'])
+    return new HTTPError(400, 'Missing required parameter "service"').toJSON()
   }
   if (!method) {
-    logger('error', ['Missing required parameter \'method\''])
-    return new HTTPError(400, 'Missing required parameter \'method\'').toJSON()
+    logger('error', ['Missing required parameter "method"'])
+    return new HTTPError(400, 'Missing required parameter "method"').toJSON()
   }
   if (!parameter) {
-    logger('error', ['Missing required parameter \'parameter\''])
-    return new HTTPError(400, 'Missing required parameter \'parameter\'').toJSON()
+    logger('error', ['Missing required parameter "parameter"'])
+    return new HTTPError(400, 'Missing required parameter "parameter"').toJSON()
   }
 
   logConfig({
-    prefix: `${context.invocationId} - ${service} - ${method}${secure ? ' - secure' : ''}`,
+    prefix: `${context.invocationId} - ${context.bindingData.sys.methodName} - ${service} - ${method}${secure ? ' - secure' : ''}`,
     azure: {
       context,
       excludeInvocationId: true
