@@ -7,17 +7,17 @@
     "version": "B",
     "data": {
       "created": {
-        "timestamp": 0
+        "timestamp": "date"
       },
       "student": {
-        "name": "studentName",
-        "classId": "classId"
+        "name": "<<<student.name>>>",
+        "classId": "<<<student.classId>>>"
       },
       "teacher": {
-        "name": "teacherName"
+        "name": "<<<teacher.name>>>"
       },
       "school": {
-        "name": "schoolName"
+        "name": "<<<school.name>>>"
       }
     }
   },
@@ -38,14 +38,14 @@
           "Role": "Mottaker"
         }
       ],
-      "DocumentDate": "<<<date>>>",
+      "DocumentDate": "<<<documentDate>>>",
       "Files": [
         {
-          "Base64Data": "<<<base64>>>",
+          "Base64Data": "base64",
           "Category": "1",
           "Format": "pdf",
           "Status": "F",
-          "Title": "<<<title>>>",
+          "Title": "Individuell opplæringsplan <<<documentNumber>>>, må skrives ut og leveres til elev",
           "VersionFormat": "A"
         }
       ],
