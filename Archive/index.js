@@ -1,6 +1,8 @@
 const { logConfig, logger } = require('@vtfk/logger')
 const callArchive = require('../lib/call-archive')
 const getResponseObject = require('../lib/get-response-object')
+const createMetadata = require('../lib/archive/create-metadata')
+const generateDocument = require('../lib/generate-pdf')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async (context, req) => {
@@ -17,36 +19,50 @@ module.exports = async (context, req) => {
     return new HTTPError(400, 'Please pass a request body').toJSON()
   }
 
-  const { service, method, secure, options, parameter } = req.body
-  if (!service) {
+  const { system, service, method, secure, options, parameter, template } = req.body
+  if (!service && !template) {
     logger('error', ['Missing required parameter "service"'])
     return new HTTPError(400, 'Missing required parameter "service"').toJSON()
   }
-  if (!method) {
+  if (!method && !template) {
     logger('error', ['Missing required parameter "method"'])
     return new HTTPError(400, 'Missing required parameter "method"').toJSON()
   }
-  if (!parameter) {
-    logger('error', ['Missing required parameter "parameter"'])
-    return new HTTPError(400, 'Missing required parameter "parameter"').toJSON()
+  if (!parameter && !template) {
+    logger('error', ['Missing required parameter "parameter" or "template"'])
+    return new HTTPError(400, 'Missing required parameter "parameter" or "template"').toJSON()
+  }
+  if ((template && !system) || (!template && system)) {
+    logger('error', ['Missing required parameter "system" or "template"'])
+    return new HTTPError(400, 'Missing required parameter "system" or "template"').toJSON()
   }
 
   logConfig({
-    prefix: `${context.invocationId} - ${context.bindingData.sys.methodName} - ${service} - ${method}${secure ? ' - secure' : ''}`,
-    azure: {
-      context,
-      excludeInvocationId: true
-    }
+    prefix: `${context.invocationId} - ${context.bindingData.sys.methodName} - ${service} - ${method}${secure ? ' - secure' : ''}`
   })
 
   try {
-    const repacked = await callArchive({
-      service,
-      method,
-      secure,
-      parameter,
-      extras: options
-    })
+    let repacked
+    if (template && system) {
+      const { pdf, archive } = require(`../templates/${system}-${template}.json`)
+      const metadata = createMetadata({ template: archive, documentData: parameter })
+      if (pdf) {
+        metadata.parameter.Files[0].Base64Data = await generateDocument({ system, template, ...parameter })
+      }
+
+      repacked = await callArchive({
+        ...metadata,
+        extras: options
+      })
+    } else {
+      repacked = await callArchive({
+        service,
+        method,
+        secure,
+        parameter,
+        extras: options
+      })
+    }
     return getResponseObject(repacked)
   } catch (error) {
     logger('error', [error])
