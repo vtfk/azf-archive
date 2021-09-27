@@ -1,9 +1,9 @@
 module.exports = {
   PAPERTRAIL: {
-    DISABLE_LOGGING: (process.env.PAPERTRAIL_DISABLE_LOGGING && process.env.PAPERTRAIL_DISABLE_LOGGING === 'true') || false,
-    HOST: process.env.PAPERTRAIL_HOST,
-    HOSTNAME: process.env.PAPERTRAIL_HOSTNAME,
-    PORT: process.env.PAPERTRAIL_PORT
+    disableLogging: (process.env.PAPERTRAIL_DISABLE_LOGGING && process.env.PAPERTRAIL_DISABLE_LOGGING === 'true') || false,
+    host: process.env.PAPERTRAIL_HOST,
+    hostname: process.env.PAPERTRAIL_HOSTNAME,
+    port: process.env.PAPERTRAIL_PORT
   },
   P360: {
     host: process.env.P360_BASE_URL,
@@ -22,7 +22,7 @@ module.exports = {
     tableName: process.env.DB_TABLE_NAME || `[${process.env.DB_DATABASE}].[dbo].[${process.env.DB_TABLE}]`
   },
   DSF: {
-    jwt_secret: process.env.DSF_JWT_SECRET || false,
+    jwtSecret: process.env.DSF_JWT_SECRET || false,
     url: process.env.DSF_URL || '',
     saksref: process.env.DSF_SAKSREF || ''
   },

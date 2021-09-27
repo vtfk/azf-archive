@@ -19,51 +19,37 @@ module.exports = async (context, req) => {
     return new HTTPError(400, 'Please pass a request body').toJSON()
   }
 
-  const { system, service, method, secure, options, parameter, template } = req.body
-  if (!service && !template) {
-    logger('error', ['Missing required parameter "service"'])
-    return new HTTPError(400, 'Missing required parameter "service"').toJSON()
+  const { service, method, secure, options, system, template, parameter } = req.body
+  if (!service && !method && !system && !template) {
+    logger('error', ['Missing required parameters. Check documentation'])
+    return new HTTPError(400, 'Missing required parameters. Check documentation').toJSON()
   }
-  if (!method && !template) {
-    logger('error', ['Missing required parameter "method"'])
-    return new HTTPError(400, 'Missing required parameter "method"').toJSON()
+  if ((service && !method) || (!service && method) || ((service || method) && !parameter)) {
+    logger('error', ['Missing required parameter for raw SIF call. Check documentation'])
+    return new HTTPError(400, 'Missing required parameter for raw SIF call. Check documentation').toJSON()
   }
-  if (!parameter && !template) {
-    logger('error', ['Missing required parameter "parameter" or "template"'])
-    return new HTTPError(400, 'Missing required parameter "parameter" or "template"').toJSON()
-  }
-  if ((template && !system) || (!template && system)) {
-    logger('error', ['Missing required parameter "system" or "template"'])
-    return new HTTPError(400, 'Missing required parameter "system" or "template"').toJSON()
+  if ((system && !template) || (!system && template) || ((system || template) && !parameter)) {
+    logger('error', ['Missing required parameter for template call. Check documentation'])
+    return new HTTPError(400, 'Missing required parameter for template call. Check documentation').toJSON()
   }
 
   logConfig({
-    prefix: `${context.invocationId} - ${context.bindingData.sys.methodName} - ${service} - ${method}${secure ? ' - secure' : ''}`
+    prefix: `${context.invocationId} - ${context.bindingData.sys.methodName} - ${service || system} - ${method || template}${secure ? ' - secure' : ''}`
   })
 
   try {
-    let repacked
+    let data = { service, method, secure, parameter, extras: options }
     if (template && system) {
       const { pdf, archive } = require(`../templates/${system}-${template}.json`)
       const metadata = createMetadata({ template: archive, documentData: parameter })
       if (pdf) {
+        // TODO: Add support for multiple files
         metadata.parameter.Files[0].Base64Data = await generateDocument({ system, template, ...parameter })
       }
-
-      repacked = await callArchive({
-        ...metadata,
-        extras: options
-      })
-    } else {
-      repacked = await callArchive({
-        service,
-        method,
-        secure,
-        parameter,
-        extras: options
-      })
+      data = { ...metadata, extras: options }
     }
-    return getResponseObject(repacked)
+    const result = await callArchive(data)
+    return getResponseObject(result)
   } catch (error) {
     logger('error', [error])
     if (error instanceof HTTPError) return error.toJSON()

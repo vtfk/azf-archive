@@ -19,25 +19,24 @@ module.exports = async function (context, req) {
     logger('error', ['Please pass a request body'])
     return new HTTPError(400, 'Please pass a request body').toJSON()
   }
-  if (!req.body.birthnr) {
-    logger('error', ['Missing required parameter "birthnr"'])
-    return new HTTPError(400, 'Missing required parameter "birthnr"').toJSON()
+
+  const { ssn } = req.body
+  if (!ssn) {
+    logger('error', ['Missing required parameter "ssn"'])
+    return new HTTPError(400, 'Missing required parameter "ssn"').toJSON()
   }
 
-  const birthnr = req.body.birthnr
-
   try {
-    const dsfData = await getDsfData(birthnr)
+    const dsfData = await getDsfData(ssn)
     const dsfPerson = repackDsfObject(dsfData.RESULT.HOV)
     const privatePerson = await syncPrivatePerson(dsfPerson)
     const elevmappe = await syncElevmappe(privatePerson)
-    const resObject = {
+    return getResponseObject({
       msg: 'Succesfully synced elevmappe',
       dsfPerson,
       privatePerson,
       elevmappe
-    }
-    return getResponseObject(resObject)
+    })
   } catch (error) {
     logger('error', [error])
     if (error instanceof HTTPError) return error.toJSON()

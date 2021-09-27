@@ -170,7 +170,7 @@ No input or output. Changes will be fetched from IDM
 
 ```json
 {
-  "birthnr": "01010101010"
+  "ssn": "01010101010"
 }
 ```
 

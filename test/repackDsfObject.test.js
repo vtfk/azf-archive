@@ -36,7 +36,7 @@ const personOn7 = {
 
 const expectedProperties = [
   {
-    name: 'birthnr',
+    name: 'ssn',
     type: 'string'
   },
   {
