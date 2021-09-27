@@ -1,0 +1,61 @@
+{
+  "pdf": {
+    "system": "iop",
+    "template": "hemmelig",
+    "language": "nb",
+    "type": "2",
+    "version": "B",
+    "data": {
+      "created": {
+        "timestamp": 0
+      },
+      "student": {
+        "name": "studentName",
+        "classId": "classId"
+      },
+      "teacher": {
+        "name": "teacherName"
+      },
+      "school": {
+        "name": "schoolName"
+      }
+    }
+  },
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessGroup": "VTFK Robot",
+      "Category": "Internt notat / e-post MED oppfølging",
+      "Contacts": [
+        {
+          "ReferenceNumber": "<<<organizationNumber>>>",
+          "Role": "Avsender"
+        },
+        {
+          "ReferenceNumber": "<<<organizationNumber>>>",
+          "Role": "Mottaker"
+        }
+      ],
+      "DocumentDate": "<<<date>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "<<<title>>>",
+          "VersionFormat": "A"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsibleEnterpriseNumber": "<<<organizationNumber>>>",
+      "Status": "J",
+      "Title": "Individuell opplæringsplan <<<documentNumber>>>, må skrives ut og leveres til elev",
+      "UnofficialTitle": "Individuell opplæringsplan <<<documentNumber>>>, må skrives ut og leveres til elev - <<<student.name>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  }
+}
