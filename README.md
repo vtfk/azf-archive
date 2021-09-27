@@ -1,4 +1,4 @@
-# (WIP) azf-archive
+# azf-archive
 
 Azure function for archive operations in P360
 
@@ -77,14 +77,14 @@ Optional fields:
 }
 ```
 
-### Available options
+#### Available options
 
 | Option | Type | Value | Description |
 | ------ | ---- | ----- | ----------- |
 | onlyOpenCases | `Boolean` | `true` / `false` | If true, only cases with `Status === 'Under behandling'` will be returned; If false or undefined, all cases will be returned regardless of Status |
 | limit | `int` | `1` - `2147483647` | If set to `1`, first occurance will be returned as an `object`. If set to `2` or greater, an array with `limit` amount of items are returned. If set to `0` or not set, the original output will be returned |
 
-### Supported **services** and their **methods**
+#### Supported **services** and their **methods**
 
 - **AccessGroupService**
   - *GetAccessGroups*
