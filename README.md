@@ -6,9 +6,36 @@ Azure function for archive operations in P360
 
 All calls needs a valid Azure Subscription key
 
-### ```POST /archive```
+### ```POST /archive - template```
 
-Common endpoint for all calls.
+Endpoint for template calls. See [here](#templates) for a complete list of templates
+
+Required fields:
+- `system`: Which ***system*** to use
+- `template`: Which ***template*** to use
+- `parameter`: Parameters for calling ***P360***
+
+```json
+{
+  "system": "iop",
+  "template": "document",
+  "parameter": {
+    "accessGroup": "Elev vgs",
+    "organizationNumber": "01234",
+    "ssn": "01010101010",
+    "base64": "JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSIAogICAgPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqICAlIHBhZ2UgY29udGVudAo8PAogIC9MZW5ndGggNDQKPj4Kc3RyZWFtCkJUCjcwIDUwIFRECi9GMSAxMiBUZgooSGVsbG8sIHdvcmxkISkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4gCjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAwMDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G",
+    "fileFormat": "pdf",
+    "displayName": "Bjarne Betjent",
+    "caseNumber": "30/99999",
+    "documentDate": "2021-09-27",
+    "versionNumber": "4.0"
+  }
+}
+```
+
+### ```POST /archive - raw```
+
+Endpoint for raw SIF calls
 
 Required fields:
 - `service`: Which ***SIF service*** to use
@@ -130,6 +157,32 @@ Optional fields:
 
 Full documentation for the **SIF services** can be found [here](https://github.com/vtfk/azf-archive/blob/master/docs/sif-generic-web-service.pdf)
 
+### ```POST /Changes```
+
+Endpoint for changes in IDM
+
+No input or output. Changes will be fetched from IDM
+
+### ```POST /SyncElevmappe```
+
+- Create **Elevmappe** on user if one doesn't exist
+- Update **Elevmappe** on user if one already exists
+
+```json
+{
+  "birthnr": "01010101010"
+}
+```
+
+## Templates
+
+Currently available archive templates
+
+| System | Template | Languages | Description |
+|--------|----------|-----------|-------------|
+| iop | hemmelig | nb | Sends a auto generate PDF to school to distribute this manully.<br>[Format available here](https://github.com/vtfk/azf-archive/blob/main/docs/templates/iop-hemmelig.md)
+| iop | document | nb | Archive an IOP on students elevmappe.<br>[Format available here](https://github.com/vtfk/azf-archive/blob/main/docs/templates/iop-document.md)
+
 ## local.settings.json
 
 ```json
@@ -142,10 +195,20 @@ Full documentation for the **SIF services** can be found [here](https://github.c
     "P360_TOKEN": "bla-bla-bla-bla-123",
     "P360_SECURE_BASE_URL": "http://p360sikkerserver.domain.no:3001",
     "P360_SECURE_TOKEN": "bla-bla-bla-bla-123",
+    "P360_VTFK_ROBOT_RECNO": "000000",
     "PAPERTRAIL_DISABLE_LOGGING": false,
     "PAPERTRAIL_HOST": "logger.papertrailapp.com",
     "PAPERTRAIL_HOSTNAME": "azf-archive",
-    "PAPERTRAIL_PORT": 12345
+    "PAPERTRAIL_PORT": 12345,
+    "PDF_GENERATOR": "https://pdf.no/generate",
+    "DSF_JWT_SECRET": "Noe skikkelig hemmelig",
+    "DSF_URL": "https://dsf.no/lookup",
+    "DSF_SAKSREF": "systemref",
+    "DB_USER": "db-user",
+    "DB_PASSWORD": "db-pass",
+    "DB_SERVER": "db-server",
+    "DB_DATABASE": "db-db",
+    "DB_TABLE": "db-table"
   }
 }
 ```
