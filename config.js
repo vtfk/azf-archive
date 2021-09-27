@@ -1,5 +1,4 @@
 module.exports = {
-  JWT_SECRET: process.env.JWT_SECRET || 'Noe skikkelig hemmelig',
   PAPERTRAIL: {
     DISABLE_LOGGING: (process.env.PAPERTRAIL_DISABLE_LOGGING && process.env.PAPERTRAIL_DISABLE_LOGGING === 'true') || false,
     HOST: process.env.PAPERTRAIL_HOST,
@@ -20,7 +19,6 @@ module.exports = {
     password: process.env.DB_PASSWORD || '',
     server: process.env.DB_SERVER || '',
     database: process.env.DB_DATABASE || '',
-    table: process.env.DB_TABLE || '',
     tableName: process.env.DB_TABLE_NAME || `[${process.env.DB_DATABASE}].[dbo].[${process.env.DB_TABLE}]`
   },
   DSF: {

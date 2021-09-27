@@ -190,7 +190,6 @@ Currently available archive templates
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "JWT_SECRET": "Noe skikkelig hemmelig",
     "P360_BASE_URL": "http://p360server.domain.no:3001",
     "P360_TOKEN": "bla-bla-bla-bla-123",
     "P360_SECURE_BASE_URL": "http://p360sikkerserver.domain.no:3001",
