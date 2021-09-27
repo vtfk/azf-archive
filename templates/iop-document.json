@@ -1,0 +1,42 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessCodeDescription": "Offl §13 jf. fvl §13 første ledd pkt. 1 - taushetsplikt om personlige forhold",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>",
+      "Category": "Dokument ut",
+      "Contacts": [
+        {
+          "IsUnofficial": false,
+          "ReferenceNumber": "<<<organizationNumber>>>",
+          "Role": "Avsender"
+        },
+        {
+          "IsUnofficial": true,
+          "ReferenceNumber": "<<<ssn>>>",
+          "Role": "Mottaker"
+        }
+      ],
+      "DocumentDate": "<<<documentDate>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "<<<fileFormat>>>",
+          "Status": "F",
+          "Title": "IOP - Individuell opplæringsplan",
+          "VersionFormat": "P"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsibleEnterpriseNumber": "<<<organizationNumber>>>",
+      "Status": "R",
+      "Title": "IOP - Individuell opplæringsplan",
+      "UnofficialTitle": "IOP - Individuell opplæringsplan - <<<displayName>>> - versjon <<<versionNumber>>>"
+    }
+  }
+}
