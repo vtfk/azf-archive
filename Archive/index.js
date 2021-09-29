@@ -38,15 +38,15 @@ module.exports = async (context, req) => {
   })
 
   try {
-    let data = { service, method, secure, parameter, extras: options }
-    if (template && system) {
+    let data = { service, method, secure, parameter, extras }
+    if (system && template) {
       const { pdf, archive } = require(`../templates/${system}-${template}.json`)
       const metadata = createMetadata({ template: archive, documentData: parameter })
       if (pdf) {
         // TODO: Add support for multiple files
         metadata.parameter.Files[0].Base64Data = await generateDocument({ system, template, ...parameter })
       }
-      data = { ...metadata, extras: options }
+      data = { ...metadata, extras }
     }
     const result = await callArchive(data)
     return getResponseObject(result)
