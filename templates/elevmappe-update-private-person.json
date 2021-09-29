@@ -1,0 +1,17 @@
+{
+  "archive": {
+    "service": "ContactService",
+    "method": "UpdatePrivatePerson",
+    "parameter": {
+      "FirstName": "<<<firstName>>>",
+      "LastName": "<<<lastName>>>",
+      "PersonalIdNumber": "<<<ssn>>>",
+      "PrivateAddress": {
+        "StreetAddress": "<<<streetAddress>>>",
+        "ZipCode": "<<<zipCode>>>",
+        "ZipPlace": "<<<zipPlace>>>",
+        "Country": "NOR"
+      }
+    }
+  }
+}

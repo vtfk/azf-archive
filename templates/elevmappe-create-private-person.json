@@ -1,0 +1,18 @@
+{
+  "archive": {
+    "service": "ContactService",
+    "method": "SynchronizePrivatePerson",
+    "parameter": {
+      "FirstName": "<<<firstName>>>",
+      "LastName": "<<<lastName>>>",
+      "PersonalIdNumber": "<<<ssn>>>",
+      "Active": "true",
+      "PrivateAddress": {
+        "StreetAddress": "<<<streetAddress>>>",
+        "ZipCode": "<<<zipCode>>>",
+        "ZipPlace": "<<<zipPlace>>>",
+        "Country": "NOR"
+      }
+    }
+  }
+}

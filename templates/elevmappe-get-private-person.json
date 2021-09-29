@@ -1,0 +1,10 @@
+{
+  "archive": {
+    "service": "ContactService",
+    "method": "GetPrivatePersons",
+    "parameter": {
+      "PersonalIdNumber": "<<<ssn>>>",
+      "Active": "true"
+    }
+  }
+}

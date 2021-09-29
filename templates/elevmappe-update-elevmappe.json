@@ -1,0 +1,17 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "UpdateCase",
+    "parameter": {
+      "CaseNumber": "<<<caseNumber>>>",
+      "Contacts": [
+        {
+          "Role": "Sakspart",
+          "ReferenceNumber": "<<<ssn>>>",
+          "IsUnofficial": true
+        }
+      ],
+      "SyncCaseContacts": true
+    }
+  }
+}

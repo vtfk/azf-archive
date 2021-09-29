@@ -1,0 +1,11 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "GetDocuments",
+    "secure": true,
+    "parameter": {
+      "CaseNumber": "<<<caseNumber>>>",
+      "IncludeAccessMatrixRowPermissions": true
+    }
+  }
+}

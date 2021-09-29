@@ -1,0 +1,11 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "GetCases",
+    "parameter": {
+      "Title": "Elevmappe%",
+      "ContactReferenceNumber": "<<<ssn>>>",
+      "IncludeCaseContacts": true
+    }
+  }
+}
