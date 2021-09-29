@@ -1,6 +1,6 @@
 const { readdirSync } = require('fs')
 const HTTPError = require('../lib/http-error')
-const createMetadata = require('../lib/archive/create-metadata')
+const createMetadata = require('../lib/create-metadata')
 
 const data = {
   template: {

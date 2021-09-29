@@ -1,7 +1,7 @@
 const { logConfig, logger } = require('@vtfk/logger')
 const callArchive = require('../lib/call-archive')
 const getResponseObject = require('../lib/get-response-object')
-const createMetadata = require('../lib/archive/create-metadata')
+const createMetadata = require('../lib/create-metadata')
 const generateDocument = require('../lib/generate-pdf')
 const HTTPError = require('../lib/http-error')
 
