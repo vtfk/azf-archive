@@ -8,7 +8,7 @@ module.exports = {
   P360: {
     host: process.env.P360_BASE_URL,
     authkey: process.env.P360_TOKEN,
-    vtfkRobotRecno: process.env.P360_VTFK_ROBOT_RECNO || '200326' // test is: 200336, prod is: 200326 VTFK Robot
+    robotRecno: process.env.P360_VTFK_ROBOT_RECNO || '200326' // test is: 200336, prod is: 200326 VTFK Robot
   },
   P360_SECURE: {
     host: process.env.P360_SECURE_BASE_URL,
