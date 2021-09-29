@@ -168,6 +168,8 @@ No input or output. Changes will be fetched from IDM
 - Create **Elevmappe** on user if one doesn't exist
 - Update **Elevmappe** on user if one already exists
 
+Fetches person info from [Det sentrale folkeregister](https://github.com/vtfk/azf-dsf)
+
 ```json
 {
   "ssn": "01010101010"
