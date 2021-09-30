@@ -182,15 +182,15 @@ Currently available archive templates
 
 | System | Template | Languages | Description |
 |--------|----------|-----------|-------------|
-| elevmappe | create-elevmappe | nb | Create **Elevmappe** by referencing **social security number**.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/elevmappe-create-elevmappe.json)
-| elevmappe | create-private-person | nb | Create **PrivatePerson** in *P360* contact register.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/elevmappe-create-private-person.json)
-| elevmappe | get-documents | nb | Get **Documents** archived on a **caseNumber**.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/elevmappe-get-documents.json)
-| elevmappe | get-elevmappe | nb | Get **Elevmappe** archived on a **social security number**.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/elevmappe-get-elevmappe.json)
-| elevmappe | get-private-person | nb | Get **PrivatePerson** from *P360* contact register by referencing **social security number**.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/elevmappe-get-private-person.json)
-| elevmappe | update-elevmappe | nb | Update **PrivatePerson** on **Elevmappe** archived on a **caseNumber**.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/elevmappe-update-elevmappe.json)
-| elevmappe | update-private-person | nb | Update **PrivatePerson** in *P360* contact register.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/elevmappe-update-private-person.json)
-| iop | hemmelig | nb | Sends a auto generate PDF to school to distribute this manully.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/iop-hemmelig.json)
-| iop | document | nb | Archive an IOP on students elevmappe.<br>[Raw JSON input format available here](https://github.com/vtfk/azf-archive/blob/master/test/templates/iop-document.json)
+| elevmappe | create-elevmappe | nb | Create **Elevmappe** by referencing **social security number**.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/elevmappe-create-elevmappe.json)
+| elevmappe | create-private-person | nb | Create **PrivatePerson** in *P360* contact register.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/elevmappe-create-private-person.json)
+| elevmappe | get-documents | nb | Get **Documents** archived on a **caseNumber**.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/elevmappe-get-documents.json)
+| elevmappe | get-elevmappe | nb | Get **Elevmappe** archived on a **social security number**.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/elevmappe-get-elevmappe.json)
+| elevmappe | get-private-person | nb | Get **PrivatePerson** from *P360* contact register by referencing **social security number**.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/elevmappe-get-private-person.json)
+| elevmappe | update-elevmappe | nb | Update **PrivatePerson** on **Elevmappe** archived on a **caseNumber**.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/elevmappe-update-elevmappe.json)
+| elevmappe | update-private-person | nb | Update **PrivatePerson** in *P360* contact register.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/elevmappe-update-private-person.json)
+| iop | hemmelig | nb | Sends a auto generate PDF to school to distribute this manully.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/iop-hemmelig.json)
+| iop | document | nb | Archive an IOP on students elevmappe.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/iop-document.json)
 
 ## local.settings.json
 

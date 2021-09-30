@@ -57,5 +57,21 @@
       "Archive": "Saksdokument",
       "CaseNumber": "<<<caseNumber>>>"
     }
+  },
+  "data": {
+    "organizationNumber": "00000",
+    "documentDate": "2021-09-27",
+    "documentNumber": "30/00000-12",
+    "student": {
+      "name": "Ola Nordmann",
+      "classId": "GUL:5OPP"
+    },
+    "teacher": {
+      "name": "Kari Nordmann"
+    },
+    "school": {
+      "name": "Gul vgs"
+    },
+    "caseNumber": "30/00000"
   }
 }

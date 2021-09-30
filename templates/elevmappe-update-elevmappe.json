@@ -13,5 +13,9 @@
       ],
       "SyncCaseContacts": true
     }
+  },
+  "data": {
+    "caseNumber": "30/00000",
+    "ssn": "01010101010"
   }
 }

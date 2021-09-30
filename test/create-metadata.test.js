@@ -1,6 +1,7 @@
 const { readdirSync } = require('fs')
 const HTTPError = require('../lib/http-error')
 const createMetadata = require('../lib/create-metadata')
+const findUnreplaced = require('./lib/find-unreplaced')
 
 const data = {
   template: {
@@ -42,20 +43,25 @@ test('Exception thrown when object token doesn\'t exist', () => {
   expect(fn).toThrow(HTTPError)
 })
 
-const templates = readdirSync('./templates')
+const templates = readdirSync('./templates') // outside the test working dir is root foler
 describe('Test templates', () => {
   test.each(templates)('Expect template %p to have an "archive" property', template => {
-    const tp = require(`../templates/${template}`)
+    const tp = require(`../templates/${template}`) // inside the test working dir is current folder
     expect(typeof tp.archive).toBe('object')
   })
-  test.each(templates)('Expect template %p to have a data equivalent in "test/templates"', template => {
-    const data = require(`./templates/${template}`)
-    expect(typeof data).toBe('object')
+  test.each(templates)('Expect template %p to have a "data" property', template => {
+    const tp = require(`../templates/${template}`) // inside the test working dir is current folder
+    expect(typeof tp.data).toBe('object')
   })
   test.each(templates)('Expect template %p to generate successfully', template => {
-    const { archive } = require(`../templates/${template}`)
-    const data = require(`./templates/${template}`)
-    const metadata = createMetadata({ template: archive, documentData: data })
-    expect(typeof metadata).toBe('object')
+    const { pdf, archive, data } = require(`../templates/${template}`) // inside the test working dir is current folder
+    if (pdf) {
+      const pdfMetadata = createMetadata({ template: pdf, documentData: data })
+      expect(typeof pdfMetadata).toBe('object')
+      expect(findUnreplaced(pdfMetadata).length).toBe(0)
+    }
+    const archiveMetadata = createMetadata({ template: archive, documentData: data })
+    expect(typeof archiveMetadata).toBe('object')
+    expect(findUnreplaced(archiveMetadata).length).toBe(0)
   })
 })

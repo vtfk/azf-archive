@@ -6,5 +6,8 @@
       "PersonalIdNumber": "<<<ssn>>>",
       "Active": "true"
     }
+  },
+  "data": {
+    "ssn": "01010101010"
   }
 }
