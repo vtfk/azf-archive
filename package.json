@@ -4,7 +4,7 @@
   "description": "Azure function for archive operations in P360",
   "main": "index.js",
   "scripts": {
-    "test": "standard && jest && npm audit",
+    "test": "standard && jest",
     "test:offline": "standard && jest",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "start": "func start"
