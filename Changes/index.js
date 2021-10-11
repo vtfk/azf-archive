@@ -1,11 +1,11 @@
-const { logConfig, logger } = require('@vtfk/logger')
-const getDsfData = require('../lib/dsf/get-dsf-data')
+/* const { logConfig, logger } = require('@vtfk/logger')
+const getDsfData = require('../lib/dsf/get-dsf-data') */
 const getResponseObject = require('../lib/get-response-object')
-const getChanges = require('../lib/idm/get-changes')
+// const getChanges = require('../lib/idm/get-changes')
 // const setChange = require('../lib/idm/set-change')
 
 module.exports = async function (context, req) {
-  logConfig({
+  /* logConfig({
     prefix: `${context.invocationId} - ${context.bindingData.sys.methodName}`,
     azure: {
       context,
@@ -34,5 +34,7 @@ module.exports = async function (context, req) {
     }
   }
 
-  return getResponseObject(changes)
+  return getResponseObject(changes) */
+
+  return getResponseObject('Not implemented yet')
 }
