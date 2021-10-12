@@ -34,11 +34,11 @@ module.exports = {
     bcc: (process.env.MAIL_BCC && process.env.MAIL_BCC.split(',')) || [],
     from: process.env.MAIL_FROM || 'noreply@vtfk.no',
     signature: {
-      name: "Arkiveringsroboten",
-      title: "🚣",
-      company: "Vestfold og Telemark fylkeskommune",
-      phone: "35 91 70 00",
-      mobile: "35 91 70 00"
+      name: 'Arkiveringsroboten',
+      title: '🚣',
+      company: 'Vestfold og Telemark fylkeskommune',
+      phone: '35 91 70 00',
+      mobile: '35 91 70 00'
     },
     secret: process.env.MAIL_SECRET || false,
     toArchive: (process.env.MAIL_TO_ARCHIVE && process.env.MAIL_TO_ARCHIVE.split(',')) || [],
