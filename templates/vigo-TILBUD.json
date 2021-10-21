@@ -1,0 +1,43 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessCodeDescription": "Offl §13 jf. fvl §13 første ledd pkt. 1 - taushetsplikt om personlige forhold",
+      "AccessGroup": "VTFK Robot",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>",
+      "Category": "Dokument ut",
+      "Contacts": [
+        {
+          "IsUnofficial": true,
+          "ReferenceNumber": "<<<ssn>>>",
+          "Role": "mottaker"
+        }
+      ],
+      "DocumentDate": "<<<documentDate>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "PDF",
+          "Status": "F",
+          "Title": "Tilbud om skoleplass skoleåret 2021/2022"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsiblePersonRecno": "200326",
+      "ResponsibleEnterpriseRecno": "506",
+      "Status": "J",
+      "Title": "Tilbud om skoleplass skoleåret 2021/2022",
+      "UnofficialTitle": "Tilbud om skoleplass skoleåret 2021/2022"
+    }
+  },
+  "data": {
+    "caseNumber": "30/00000",
+    "ssn": "01010101010",
+    "documentDate": "2021-09-27",
+    "base64": "heihei"
+  }
+}
