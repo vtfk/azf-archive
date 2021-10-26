@@ -187,6 +187,15 @@ const resultCreateCaseWithErrorMessage = repackResult({
   TotalPageCount: 1
 })
 
+const resultPrivatePersonWithEmptyResponse = repackResult({
+  PrivatePersons: [],
+  TotalPageCount: 0,
+  TotalCount: 0,
+  Successful: true,
+  ErrorMessage: null,
+  ErrorDetails: null
+})
+
 test('PrivatePerson result is Array', () => {
   expect(Array.isArray(resultPrivatePerson)).toBe(true)
 })
@@ -197,6 +206,15 @@ test('PrivatePerson result has one item only', () => {
 
 test('PrivatePerson results one item has a "Recno" property', () => {
   expect(resultPrivatePerson[0].Recno).toBe(123456)
+})
+
+test('PrivatePerson with empty response is array', () => {
+  expect(Array.isArray(resultPrivatePersonWithEmptyResponse)).toBe(true)
+})
+
+test('PrivatePerson with empty response is empty array', () => {
+  console.log(resultPrivatePersonWithEmptyResponse)
+  expect(resultPrivatePersonWithEmptyResponse.length).toBe(0)
 })
 
 test('CreateCase result is Array', () => {
