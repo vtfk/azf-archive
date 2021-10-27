@@ -19,23 +19,9 @@ module.exports = async function (context, req) {
 
   const changes = await getChanges()
 
-  // const resList = []
-  // for (let i=0; i<10; i++) {
-  //   if (changes[i].IDM_Type === "Elev" && changes[i].IDM_ChangeType === "ModifyValue" && changes[i].IDM_AttributeName === "sasOrganizationalUnitCSV") {
-  //     console.log("Vi er på "+i)
-  //     try {
-  //       const test = await syncReadPermissions('21/00068', changes[i].IDM_NewValue)
-  //       resList.push({school: changes[i].IDM_NewValue, status: "Success", documentsToChange: test})
-  //     } catch (error) {
-  //       console.log(error)
-  //       resList.push({school: changes[i].IDM_NewValue, status: "FAIIILL", error: error.toString()})
-  //     }
-  //   }
-  // }
-
   const dsfCache = {}
   const retur = []
-  for (let i = 0; i < 50; i++) {
+  for (let i = 5; i < 6; i++) {
     const change = changes[i]
     logger('info', ['STARTER PÅ NY IDM HENDELISE!!!', change.Id])
     const result = {}
@@ -82,18 +68,12 @@ module.exports = async function (context, req) {
       // If new school syncReadPermissions
       if (change.IDM_ChangeType === 'ModifyValue' && change.IDM_AttributeName === 'sasOrganizationalUnitCSV') {
         const oldValues = change.IDM_OldValue.split(',')
-        console.log(oldValues)
         const newValues = change.IDM_NewValue.split(',')
-        console.log(newValues)
-        newValues.forEach(element => {
-          console.log(typeof element)
-        })
         const actualNewValues = newValues.filter(school => !oldValues.includes(school))
         if (actualNewValues.length > 0) {
-          console.log(actualNewValues)
-          logger('info', ['Fant ny skole elev på elev, jada', actualNewValues])
+          logger('info', ['Fant ny skole på elev, ', actualNewValues])
           result.permission = await syncReadPermissions(result.elevmappe.CaseNumber, actualNewValues)
-          retur.push(result)
+          retur.push({ ssn: result.dsfData.ssn, docNumbers: result.permission, newSchools: actualNewValues })
         }
       }
     }

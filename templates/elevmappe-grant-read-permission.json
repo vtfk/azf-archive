@@ -1,0 +1,22 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "UpdateDocument",
+    "secure": true,
+    "parameter": {
+      "DocumentNumber": "<<<documentNumber>>>",
+      "Permissions": [
+        {
+          "AccessGroup": "<<<accessGroup>>>",
+          "AccessLevel": "Read",
+          "Grant": false,
+          "ViewFile": true
+        }
+      ]
+    }
+  },
+  "data": {
+    "documentNumber": "21/00012-1",
+    "accessGroup": "Elev livets skole"
+  }
+}
