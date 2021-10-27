@@ -22,7 +22,9 @@ module.exports = async function (context, req) {
 
     const dsfCache = {}
     const retur = []
-    for (let i = 5; i < 6; i++) {
+    const limit = 10
+    const runLength = changes.length >= limit ? limit : changes.length
+    for (let i = 0; i < runLength; i++) {
       const change = changes[i]
       logger('info', ['STARTER PÅ NY IDM HENDELISE!!!', change.Id])
       const result = {}
@@ -32,7 +34,7 @@ module.exports = async function (context, req) {
         try {
           logger('info', ['Henter dsf data for elev', fnr])
           result.dsfData = dsfCache.fnr || await getDsfData(fnr)
-          logger('info', ['Fant data', result.dsfData])
+          logger('info', ['Fant data', fnr])
           if (result.dsfData.RESULT?.HOV) {
             result.dsfData = repackDsfObject(result.dsfData.RESULT.HOV)
           }
