@@ -43,5 +43,9 @@ module.exports = {
     secret: process.env.MAIL_SECRET || false,
     toArchive: (process.env.MAIL_TO_ARCHIVE && process.env.MAIL_TO_ARCHIVE.split(',')) || [],
     url: process.env.MAIL_URL
+  },
+  VIEW_PERMISSION: {
+    excludeSchools: ['Elev fagskolen', 'Elev skolen for sosiale og medisinske institusjoner', 'Elev Kompetansebyggeren'],
+    excludeEnterprises: ['Seksjon for pedagogisk psykologisk tjeneste', 'Seksjon for oppfølgingstjeneste']
   }
 }
