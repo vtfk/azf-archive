@@ -170,9 +170,19 @@ No input or output. Changes will be fetched from IDM
 
 Fetches person info from [Det sentrale folkeregister](https://github.com/vtfk/azf-dsf)
 
+#### `With ssn as parameter`
 ```json
 {
   "ssn": "01010101010"
+}
+```
+
+#### `With birthdate and name as parameter (only works with one match)`
+```json
+{
+  "birthdate": "010101",
+  "firstName": "Per",
+  "lastName": "Son"
 }
 ```
 
