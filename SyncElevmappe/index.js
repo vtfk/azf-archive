@@ -32,7 +32,7 @@ module.exports = async function (context, req) {
     const dsfPerson = repackDsfObject(dsfData.RESULT.HOV)
     const privatePerson = await syncPrivatePerson(dsfPerson)
     const elevmappe = await syncElevmappe(privatePerson)
-    // legg til syncreadpermissions
+
     return getResponseObject({
       msg: 'Succesfully synced elevmappe',
       dsfPerson,
