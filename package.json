@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/vtfk/azf-archive#readme",
   "dependencies": {
-    "@vtfk/logger": "2.5.2",
+    "@vtfk/logger": "3.0.1",
     "@vtfk/p360": "1.1.5",
     "axios": "0.24.0",
     "jsonwebtoken": "8.5.1",
