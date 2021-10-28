@@ -21,16 +21,18 @@ module.exports = async function (context, req) {
   }
 
   const { ssn } = req.body
-  if (!ssn) {
-    logger('error', ['Missing required parameter "ssn"'])
-    return new HTTPError(400, 'Missing required parameter "ssn"').toJSON()
+  const { birthdate, firstName, lastName } = req.body
+  if (!ssn && !(birthdate && firstName && lastName)) {
+    logger('error', ['Missing required parameter "ssn" or "birthdate, firstname, lastname"'])
+    return new HTTPError(400, 'Missing required parameter "ssn" or "birthdate, firstname, lastname"').toJSON()
   }
-
+  const dsfSearchParameter = ssn ? { ssn } : { birthdate, firstName, lastName }
   try {
-    const dsfData = await getDsfData(ssn)
+    const dsfData = await getDsfData(dsfSearchParameter)
     const dsfPerson = repackDsfObject(dsfData.RESULT.HOV)
     const privatePerson = await syncPrivatePerson(dsfPerson)
     const elevmappe = await syncElevmappe(privatePerson)
+    // legg til syncreadpermissions
     return getResponseObject({
       msg: 'Succesfully synced elevmappe',
       dsfPerson,
