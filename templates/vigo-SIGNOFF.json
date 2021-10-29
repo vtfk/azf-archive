@@ -1,0 +1,14 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "SignOffDocument",
+    "parameter": {
+      "Document": "<<<documentNumber>>>",
+      "ResponseCode": "TO",
+      "Note": "Dokumentet er avskrevet med koden TO – Tatt til orientering"
+    }
+  },
+  "data": {
+    "documentNumber": "30/00000-1"
+  }
+}
