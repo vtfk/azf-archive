@@ -36,6 +36,7 @@ module.exports = async function (context, req) {
           result.dsfData = dsfCache.fnr || await getDsfData(fnr)
           logger('info', ['Fant data', fnr])
           if (result.dsfData.RESULT?.HOV) {
+            // Hvis changeType modified value i EmployeeNumber - sett result.dsfData.RESULT.HOV.oldSsn til gammelt fnr
             result.dsfData = repackDsfObject(result.dsfData.RESULT.HOV)
           }
         } catch (error) {
