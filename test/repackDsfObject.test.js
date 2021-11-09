@@ -25,13 +25,13 @@ const personOn4 = {
 const personOn6 = {
   ...person,
   'SPES-KD': '6',
-  SPES: 'STRENGT FORTROLIG'
+  SPES: 'SPERRET ADRESSE, STRENGT FORTROLIG'
 }
 
 const personOn7 = {
   ...person,
   'SPES-KD': '7',
-  SPES: 'FORTROLIG'
+  SPES: 'SPERRET ADRESSE, FORTROLIG'
 }
 
 const expectedProperties = [
@@ -96,7 +96,7 @@ test('SPES-KD 6 returns object without real streetAddress', () => {
   expect(repacked.streetAddress.toLowerCase()).toBe(personOn6.SPES.toLowerCase())
   expect(repacked.zipCode).toBe('_9999')
   expect(repacked.zipPlace).toBe('UKJENT')
-  expect(repacked.addressType).toBe('sperret adresse')
+  expect(repacked.addressType).toBe('Sperret adresse, strengt fortrolig')
 })
 
 test('SPES-KD 7 returns object without real streetAddress', () => {
@@ -104,5 +104,5 @@ test('SPES-KD 7 returns object without real streetAddress', () => {
   expect(repacked.streetAddress.toLowerCase()).toBe(personOn7.SPES.toLowerCase())
   expect(repacked.zipCode).toBe('_9999')
   expect(repacked.zipPlace).toBe('UKJENT')
-  expect(repacked.addressType).toBe('sperret adresse')
+  expect(repacked.addressType).toBe('Sperret adresse, fortrolig')
 })
