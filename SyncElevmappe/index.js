@@ -43,7 +43,7 @@ module.exports = async function (context, req) {
       result.readPermissions = await syncReadPermissions(result.elevmappe.CaseNumber, req.body.newSchools)
     }
 
-    return getResponseObject({msg: 'Succesfully synced elevmappe', ...result})
+    return getResponseObject({ msg: 'Succesfully synced elevmappe', ...result })
   } catch (error) {
     logger('error', [error])
     if (error instanceof HTTPError) return error.toJSON()
