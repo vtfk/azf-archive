@@ -4,6 +4,7 @@
     "method": "UpdateCase",
     "parameter": {
       "CaseNumber": "<<<caseNumber>>>",
+      "UnofficialTitle": "Elevmappe - <<<firstName>>> <<<lastName>>>",
       "Contacts": [
         {
           "Role": "Sakspart",
@@ -16,6 +17,8 @@
   },
   "data": {
     "caseNumber": "30/00000",
+    "firstName": "Per",
+    "lastName": "Son",
     "ssn": "01010101010"
   }
 }
