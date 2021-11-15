@@ -186,6 +186,24 @@ Fetches person info from [Det sentrale folkeregister](https://github.com/vtfk/az
 }
 ```
 
+#### `Optional: With old ssn and new ssn as parameter (for updating ssn on PrivatePerson)`
+Either updates the PrivatePerson with new ssn, if person exists on old ssn, or creates new PrivatePerson on the new ssn
+```json
+{
+  "ssn": "01010101011",
+  "oldSsn": "01010101010"
+}
+```
+
+#### `Optional: With newSchools as parameter, for granting reading permissions for new school(s)`
+Must be array of school(s), where each school is the full name of the school. [See available school names here](https://github.com/vtfk/vtfk-schools-info/blob/master/lib/data/schools.json)
+```json
+{
+  "ssn": "01010101011",
+  "newSchools": ["Gul videregående skole", "Livets videregående skole"]
+}
+```
+
 ## Templates
 
 Currently available archive templates
