@@ -164,10 +164,13 @@ Endpoint for changes in IDM
 No input or output. Changes will be fetched from IDM
 
 ### ```POST /SyncElevmappe```
-
+- Create **PrivatePerson** on person if one doesn't exist
+- Updates name and address on **PrivatePerson** if one already exists
+- Updates ssn for **PrivatePerson** if parameter *oldSsn* is passed, or if new ssn is found in `Det sentrale folkeregister`
 - Create **Elevmappe** on user if one doesn't exist
-- Update **Elevmappe** on user if one already exists
-
+- Updates case contact and name on **Elevmappe** if one already exists
+- Grants reading permissions to *newSchools* on relevant documents in **Elevmappe** if parameter *newSchools* is passed
+- Sends email alert to archive department if there is need for manual operations
 Fetches person info from [Det sentrale folkeregister](https://github.com/vtfk/azf-dsf)
 
 #### `With ssn as parameter`
@@ -183,6 +186,24 @@ Fetches person info from [Det sentrale folkeregister](https://github.com/vtfk/az
   "birthdate": "010101",
   "firstName": "Per",
   "lastName": "Son"
+}
+```
+
+#### `Optional: With old ssn and new ssn as parameter (for updating ssn on PrivatePerson)`
+Either updates the **PrivatePerson** with new ssn, if person exists on old ssn, or creates new **PrivatePerson** with new ssn
+```json
+{
+  "ssn": "01010101011",
+  "oldSsn": "01010101010"
+}
+```
+
+#### `Optional: With newSchools as parameter, for granting reading permissions for new school(s)`
+Must be array of school(s), where each school is the official name of the school. [See available school names here](https://github.com/vtfk/vtfk-schools-info/blob/master/lib/data/schools.json)
+```json
+{
+  "ssn": "01010101011",
+  "newSchools": ["Gul videregående skole", "Livets videregående skole"]
 }
 ```
 

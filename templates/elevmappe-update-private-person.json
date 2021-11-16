@@ -3,6 +3,7 @@
     "service": "ContactService",
     "method": "UpdatePrivatePerson",
     "parameter": {
+      "Recno": "<<<recno>>>",
       "FirstName": "<<<firstName>>>",
       "LastName": "<<<lastName>>>",
       "PersonalIdNumber": "<<<ssn>>>",
@@ -15,6 +16,7 @@
     }
   },
   "data": {
+    "recno": "12345",
     "firstName": "Ola",
     "lastName": "Nordmann",
     "ssn": "01010101010",
