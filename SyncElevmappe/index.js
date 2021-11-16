@@ -38,12 +38,7 @@ module.exports = async function (context, req) {
     return new HTTPError(400, 'Parameter "oldSsn" must be in combination with "ssn').toJSON()
   }
 
-  let dsfSearchParameter = {}
-  if (ssn) {
-    dsfSearchParameter = oldSsn ? { ssn, oldSsn } : { ssn }
-  } else {
-    dsfSearchParameter = { birthdate, firstName, lastName }
-  }
+  const dsfSearchParameter = ssn ? oldSsn ? { ssn, oldSsn } : { ssn } : { birthdate, firstName, lastName }
 
   try {
     const dsfData = await getDsfData(dsfSearchParameter)
