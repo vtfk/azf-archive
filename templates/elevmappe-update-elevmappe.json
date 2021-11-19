@@ -4,6 +4,7 @@
     "method": "UpdateCase",
     "parameter": {
       "CaseNumber": "<<<caseNumber>>>",
+      "Title": "Elevmappe",
       "UnofficialTitle": "Elevmappe - <<<firstName>>> <<<lastName>>>",
       "Contacts": [
         {
