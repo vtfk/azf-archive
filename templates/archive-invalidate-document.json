@@ -1,7 +1,7 @@
 {
   "archive": {
     "service": "DocumentService",
-    "method": "UpdateDocuments",
+    "method": "UpdateDocument",
     "secure": "<<<secure>>>",
     "parameter": {
       "DocumentNumber": "<<<documentNumber>>>",
