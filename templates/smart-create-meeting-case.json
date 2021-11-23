@@ -1,0 +1,37 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "CreateCase",
+    "parameter": {
+      "CaseType": "Sak",
+      "Title": "Møtereferat - <<<title>>> - <<<moteDato>>>",
+      "UnofficialTitle": "Møtereferat - <<<title>>> - <<<moteDato>>>",
+      "Status": "B",
+      "JournalUnit": "Sentralarkiv",
+      "SubArchive": "Sakarkiv",
+      "ArchiveCodes": [
+        {
+          "ArchiveCode": "035",
+          "ArchiveType": "FELLESKLASSE PRINSIPP",
+          "Sort": 1,
+          "IsManualText": true
+        }
+      ],
+      "FiledOnPaper": false,
+      "AccessCode": "<<<accessCode>>>",
+      "Paragraph": "<<<paragraph>>>",
+      "AccessGroup": "<<<accessGroup>>>",
+      "ResponsibleEnterpriseRecno": "<<<responsibleEnterpriseRecno>>>",
+      "ResponsiblePersonRecno": "<<<responsiblePersonRecno>>>"
+    }
+  },
+  "data": {
+    "title": "Hei",
+    "moteDato": "2022-11-10",
+    "accessCode": "1",
+    "accessGroup": "Alle",
+    "paragraph": "Nei",
+    "responsibleEnterpriseRecno": "23455",
+    "responsiblePersonRecno": "2345"
+  }
+}
