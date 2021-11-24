@@ -4,6 +4,7 @@
     "method": "CreateCase",
     "parameter": {
       "CaseType": "Sak",
+      "Project": "<<<projectNumber>>>",
       "Title": "Møtereferat - <<<title>>> - <<<moteDato>>>",
       "UnofficialTitle": "Møtereferat - <<<title>>> - <<<moteDato>>>",
       "Status": "B",
@@ -24,6 +25,7 @@
   },
   "data": {
     "title": "Hei",
+    "projectNumber": "23-2",
     "moteDato": "2022-11-10",
     "responsibleEnterpriseRecno": "23455",
     "responsiblePersonRecno": "2345"
