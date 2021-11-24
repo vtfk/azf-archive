@@ -1,0 +1,39 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "<<<accessCode>>>",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>",
+      "Category": "Internt notat / e-post UTEN oppfølging",
+      "DocumentDate": "<<<meetingDate>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "PDF",
+          "Status": "F",
+          "Title": "<<<meetingElementTitle>>>",
+          "VersionFormat": "A"
+        }
+      ],
+      "Paragraph": "<<<paragraph>>>",
+      "ResponsibleEnterpriseRecno": "<<<responsibleEnterpriseRecno>>>",
+      "Status": "J",
+      "Title": "<<<meetingElementTitle>>>",
+      "UnofficialTitle": "<<<meetingElementTitle>>>"
+    }
+  },
+  "data": {
+    "accessGroup": "Elev vgs",
+    "accessCode": "U",
+    "caseNumber": "30/00000",
+    "meetingDate": "2021-09-27",
+    "base64": "heihei",
+    "meetingElementTitle": "Saken om kjeks",
+    "responsibleEnterpriseRecno": "306",
+    "paragraph": "Ingen paragraf gitt"
+  }
+}
