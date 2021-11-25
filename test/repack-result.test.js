@@ -276,14 +276,14 @@ test('CreateCase result with ErrorMessage is Object', () => {
 })
 
 test('CreateCase result with ErrorMessage has one property only', () => {
-  expect(Object.getOwnPropertyNames(resultCreateCaseWithErrorMessage)).toStrictEqual(['ErrorMessage'])
+  expect(Object.getOwnPropertyNames(resultCreateCaseWithErrorMessage)).toStrictEqual(['error'])
 })
 
-test('CreateCase result with ErrorMessage has a "ErrorMessage" property', () => {
-  expect(typeof resultCreateCaseWithErrorMessage.ErrorMessage).toBe('string')
-  expect(resultCreateCaseWithErrorMessage.ErrorMessage).toBe('Error occured in the mainframe :-O')
+test('CreateCase result with ErrorMessage has a "error" property', () => {
+  expect(typeof resultCreateCaseWithErrorMessage.error).toBe('string')
+  expect(resultCreateCaseWithErrorMessage.error).toBe('Error occured in the mainframe :-O')
 })
 
 test('CreateCase result with ErrorMessage "\n" do not have "ErrorMessage" property', () => {
-  expect(typeof resultCreateCaseWithWeirdErrorMessage.ErrorMessage).toBe('undefined')
+  expect(typeof resultCreateCaseWithWeirdErrorMessage.error).toBe('undefined')
 })
