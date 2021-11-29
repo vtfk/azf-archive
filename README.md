@@ -164,6 +164,38 @@ Endpoint for changes in IDM
 
 No input or output. Changes will be fetched from IDM
 
+### ```POST /SyncPrivatePerson```
+- Create **PrivatePerson** on person if one doesn't exist
+- Updates name and address on **PrivatePerson** if one already exists
+- Updates ssn for **PrivatePerson** if parameter *oldSsn* is passed, or if new ssn is found in `Det sentrale folkeregister`
+
+Fetches person info from [Det sentrale folkeregister](https://github.com/vtfk/azf-dsf)
+
+#### `With ssn as parameter`
+```json
+{
+  "ssn": "01010101010"
+}
+```
+
+#### `With birthdate and name as parameter (only works with one match)`
+```json
+{
+  "birthdate": "010101",
+  "firstName": "Per",
+  "lastName": "Son"
+}
+```
+
+#### `Optional: With old ssn and new ssn as parameter (for updating ssn on PrivatePerson)`
+Either updates the **PrivatePerson** with new ssn, if person exists on old ssn, or creates new **PrivatePerson** with new ssn
+```json
+{
+  "ssn": "01010101011",
+  "oldSsn": "01010101010"
+}
+```
+
 ### ```POST /SyncElevmappe```
 - Create **PrivatePerson** on person if one doesn't exist
 - Updates name and address on **PrivatePerson** if one already exists
