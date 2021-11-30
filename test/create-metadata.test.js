@@ -15,6 +15,27 @@ const data = {
   }
 }
 
+const dataWithAttachment = {
+  template: {
+    service: 'DocumentService',
+    method: 'CreateDocument',
+    parameter: {
+      ReferenceNumber: '<<<organizationNumber>>>'
+    }
+  },
+  documentData: {
+    organizationNumber: '01234',
+    school: {
+      organizationNumber: '56789'
+    },
+    attachments: [{
+      title: 'Et vedlegg',
+      format: 'docx',
+      base64: 'blablabla'
+    }]
+  }
+}
+
 test('Exception thrown when "template" is not defined', () => {
   const fn = () => createMetadata({})
   expect(fn).toThrow(HTTPError)
@@ -41,6 +62,29 @@ test('Exception thrown when object token doesn\'t exist', () => {
   data.template.ReferenceNumber = '<<<school.name>>>'
   const fn = () => createMetadata(data)
   expect(fn).toThrow(HTTPError)
+})
+
+test('Attachment is added to metadata, if attachments parameter is defined', () => {
+  const metadata = createMetadata(dataWithAttachment)
+  expect(metadata.parameter.Files[0].Title).toBe(dataWithAttachment.documentData.attachments[0].title)
+})
+
+test('Exception thrown when attachment is missing required property', () => {
+  delete dataWithAttachment.documentData.attachments[0].title
+  const fn = () => createMetadata(dataWithAttachment)
+  expect(fn).toThrow(HTTPError)
+  dataWithAttachment.documentData.attachments[0].title = 'Tittel er tilbake'
+})
+
+test('Attachments are added to metadata, if attachments parameter is defined with several files', () => {
+  dataWithAttachment.documentData.attachments.push({
+    title: 'Vedlegg 2',
+    format: 'pdf',
+    base64: 'tuuukkkl'
+  })
+  console.log(dataWithAttachment.documentData.attachments[1])
+  const metadata = createMetadata(dataWithAttachment)
+  expect(metadata.parameter.Files.length).toBe(2)
 })
 
 const templates = readdirSync('./templates') // outside the test working dir is root foler
