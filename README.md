@@ -15,6 +15,9 @@ Required fields:
 - `template`: Which ***template*** to use
 - `parameter`: Parameters for calling ***P360***
 
+Optional fields:
+- `parameter.attachments`: List of ***attachments*** to add to P360 Document when using templates with methods 'CreateDocument' or 'UpdateDocument'
+
 ```json
 {
   "system": "iop",
@@ -29,6 +32,38 @@ Required fields:
     "caseNumber": "30/99999",
     "documentDate": "2021-09-27",
     "versionNumber": "4.0"
+  }
+}
+```
+
+#### `With attachments`
+
+```json
+{
+  "system": "iop",
+  "template": "document",
+  "parameter": {
+    "accessGroup": "Elev vgs",
+    "organizationNumber": "01234",
+    "ssn": "01010101010",
+    "base64": "JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSIAogICAgPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqICAlIHBhZ2UgY29udGVudAo8PAogIC9MZW5ndGggNDQKPj4Kc3RyZWFtCkJUCjcwIDUwIFRECi9GMSAxMiBUZgooSGVsbG8sIHdvcmxkISkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4gCjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAwMDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G",
+    "fileFormat": "pdf",
+    "displayName": "Bjarne Betjent",
+    "caseNumber": "30/99999",
+    "documentDate": "2021-09-27",
+    "versionNumber": "4.0",
+    "attachments": [ // Optional
+      {
+        "title": "Et vedlegg",
+        "format": "docx",
+        "base64": "base64-representation of the file"
+      },
+      {
+        "title": "Enda et vedlegg",
+        "format": "msg",
+        "base64": "base64-representation of the file"
+      },
+    ]
   }
 }
 ```
