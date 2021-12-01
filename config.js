@@ -1,10 +1,4 @@
 module.exports = {
-  PAPERTRAIL: {
-    disableLogging: (process.env.PAPERTRAIL_DISABLE_LOGGING && process.env.PAPERTRAIL_DISABLE_LOGGING === 'true') || false,
-    host: process.env.PAPERTRAIL_HOST,
-    hostname: process.env.PAPERTRAIL_HOSTNAME,
-    port: process.env.PAPERTRAIL_PORT
-  },
   P360: {
     host: process.env.P360_BASE_URL,
     authkey: process.env.P360_TOKEN,
