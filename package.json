@@ -48,7 +48,7 @@
     "xml2js": "0.4.23"
   },
   "devDependencies": {
-    "jest": "27.3.1",
+    "jest": "27.4.3",
     "standard": "16.0.4"
   },
   "standard": {
