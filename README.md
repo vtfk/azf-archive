@@ -17,6 +17,7 @@ Required fields:
 
 Optional fields:
 - `parameter.attachments`: List of ***attachments*** to add to P360 Document when using templates with methods 'CreateDocument' or 'UpdateDocument'
+- `parameter.contacts`: List of ***contacts*** to add to P360 Project, Case, or Document when using templates with methods 'CreateProject', 'UpdateProject', 'CreateCase', 'UpdateCase', 'CreateDocument', or 'UpdateDocument'
 
 ```json
 {
@@ -36,7 +37,7 @@ Optional fields:
 }
 ```
 
-#### `With attachments`
+#### `With attachments and/or contacts`
 
 ```json
 {
@@ -62,7 +63,23 @@ Optional fields:
         "title": "Enda et vedlegg",
         "format": "msg",
         "base64": "base64-representation of the file"
+      }
+    ],
+    "contacts": [ // Optional
+      {
+        "ssn": "01010101011", // Valid property names are: "ssn", "recno", and "externalId"
+        "role": "mottaker",
+        "isUnofficial": true // Can be true, false, or undefined (undefined => false)
       },
+      {
+        "recno": "12345",
+        "role": "avsender"
+      },
+      {
+        "externalID": "78787",
+        "role": "avsender",
+        "isUnofficial": false
+      }
     ]
   }
 }

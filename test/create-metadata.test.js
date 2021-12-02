@@ -36,6 +36,37 @@ const dataWithAttachment = {
   }
 }
 
+const dataWithContacts = {
+  template: {
+    service: 'DocumentService',
+    method: 'CreateDocument',
+    parameter: {
+      ReferenceNumber: '<<<organizationNumber>>>'
+    }
+  },
+  documentData: {
+    organizationNumber: '01234',
+    school: {
+      organizationNumber: '56789'
+    },
+    contacts: [{
+      recno: '1234',
+      role: 'mottaker',
+      isUnofficial: true
+    },
+    {
+      externalId: '123456888',
+      role: 'avsender',
+      isUnofficial: true
+    },
+    {
+      ssn: '10101010101',
+      role: 'kopimottaker',
+      isUnofficial: true
+    }]
+  }
+}
+
 test('Exception thrown when "template" is not defined', () => {
   const fn = () => createMetadata({})
   expect(fn).toThrow(HTTPError)
@@ -82,9 +113,32 @@ test('Attachments are added to metadata, if attachments parameter is defined wit
     format: 'pdf',
     base64: 'tuuukkkl'
   })
-  console.log(dataWithAttachment.documentData.attachments[1])
   const metadata = createMetadata(dataWithAttachment)
   expect(metadata.parameter.Files.length).toBe(2)
+})
+
+test('Contact is added to metadata, if contacts parameter is defined', () => {
+  const metadata = createMetadata(dataWithContacts)
+  expect(metadata.parameter.Contacts[0].Role).toBe(dataWithContacts.documentData.contacts[0].role)
+})
+
+test('Exception thrown when contact is missing required property', () => {
+  delete dataWithContacts.documentData.contacts[0].role
+  const fn = () => createMetadata(dataWithContacts)
+  expect(fn).toThrow(HTTPError)
+  dataWithContacts.documentData.contacts[0].role = 'Mottaker'
+})
+
+test('Contacts are added to metadata, if contacts parameter is defined with several contacts', () => {
+  const metadata = createMetadata(dataWithContacts)
+  expect(metadata.parameter.Contacts.length).toBe(3)
+})
+
+test('Contact is added to metadata with correct property name, if contact.ssn, contact.recno, or contact.externalId parameter is defined', () => {
+  const metadata = createMetadata(dataWithContacts)
+  expect(metadata.parameter.Contacts[0].ReferenceNumber).toBe(`recno:${dataWithContacts.documentData.contacts[0].recno}`)
+  expect(metadata.parameter.Contacts[1].ExternalId).toBe(dataWithContacts.documentData.contacts[1].externalId)
+  expect(metadata.parameter.Contacts[2].ReferenceNumber).toBe(dataWithContacts.documentData.contacts[2].ssn)
 })
 
 const templates = readdirSync('./templates') // outside the test working dir is root foler
