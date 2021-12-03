@@ -6,6 +6,7 @@ const syncPrivatePerson = require('../lib/archive/syncPrivatePerson')
 const syncElevmappe = require('../lib/archive/syncElevmappe')
 const HTTPError = require('../lib/http-error')
 const syncReadPermissions = require('../lib/archive/syncReadPermissions')
+const setE18Stats = require('../lib/set-e18-stats')
 
 module.exports = async function (context, req) {
   logConfig({
@@ -16,31 +17,31 @@ module.exports = async function (context, req) {
     }
   })
 
-  const result = {}
-
   if (!req.body) {
     logger('error', ['Please pass a request body'])
+    await setE18Stats(undefined, undefined, { status: 'failed', error: 'Please pass a request body' })
     return new HTTPError(400, 'Please pass a request body').toJSON()
   }
 
-  const { ssn, oldSsn, birthdate, firstName, lastName, newSchools } = req.body
-  if (!ssn && !(birthdate && firstName && lastName)) {
-    logger('error', ['Missing required parameter "ssn" or "birthdate, firstname, lastname"'])
-    return new HTTPError(400, 'Missing required parameter "ssn" or "birthdate, firstname, lastname"').toJSON()
-  }
-  if (newSchools && !Array.isArray(newSchools)) {
-    return new HTTPError(400, 'Parameter "newSchools" must be array').toJSON()
-  }
-  if (oldSsn && oldSsn.length !== 11) {
-    return new HTTPError(400, 'Parameter "oldSsn" must be of length 11').toJSON()
-  }
-  if (oldSsn && !ssn) {
-    return new HTTPError(400, 'Parameter "oldSsn" must be in combination with "ssn').toJSON()
-  }
+  let result = {}
 
-  const dsfSearchParameter = ssn ? oldSsn ? { ssn, oldSsn } : { ssn } : { birthdate, firstName, lastName }
-
+  const { ssn, oldSsn, birthdate, firstName, lastName, newSchools, jobId, taskId } = req.body
   try {
+    if (!ssn && !(birthdate && firstName && lastName)) {
+      throw new HTTPError(400, 'Missing required parameter "ssn" or "birthdate, firstname, lastname"')
+    }
+    if (newSchools && !Array.isArray(newSchools)) {
+      throw new HTTPError(400, 'Parameter "newSchools" must be array')
+    }
+    if (oldSsn && oldSsn.length !== 11) {
+      throw new HTTPError(400, 'Parameter "oldSsn" must be of length 11')
+    }
+    if (oldSsn && !ssn) {
+      throw new HTTPError(400, 'Parameter "oldSsn" must be in combination with "ssn"')
+    }
+
+    const dsfSearchParameter = ssn ? oldSsn ? { ssn, oldSsn } : { ssn } : { birthdate, firstName, lastName }
+
     const dsfData = await getDsfData(dsfSearchParameter)
     result.dsfPerson = repackDsfObject(dsfData.RESULT.HOV)
     result.privatePerson = await syncPrivatePerson(result.dsfPerson)
@@ -49,10 +50,22 @@ module.exports = async function (context, req) {
       result.readPermissions = await syncReadPermissions(result.elevmappe.CaseNumber, req.body.newSchools)
     }
 
-    return getResponseObject({ msg: 'Succesfully synced elevmappe', ...result })
+    result = { msg: 'Succesfully synced elevmappe', ...result }
+    await setE18Stats(jobId, taskId, { status: 'completed', data: result })
+    return getResponseObject(result)
   } catch (error) {
+    if (error.response && error.response.data) {
+      const { data } = error.response
+      await setE18Stats(jobId, taskId, { status: 'failed', error: data, message: data.message })
+    } else {
+      await setE18Stats(jobId, taskId, { status: 'failed', error, message: error.message })
+    }
+
+    if (error instanceof HTTPError) {
+      logger('error', [error.message])
+      return error.toJSON()
+    }
     logger('error', [error])
-    if (error instanceof HTTPError) return error.toJSON()
     return getResponseObject(error, 500)
   }
 }
