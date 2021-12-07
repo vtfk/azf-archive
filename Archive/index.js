@@ -1,10 +1,10 @@
 const { logConfig, logger } = require('@vtfk/logger')
+const { create: roadRunner } = require('@vtfk/e18')
 const callArchive = require('../lib/call-archive')
 const getResponseObject = require('../lib/get-response-object')
 const createMetadata = require('../lib/create-metadata')
 const generateDocument = require('../lib/generate-pdf')
 const HTTPError = require('../lib/http-error')
-const setE18Stats = require('../lib/set-e18-stats')
 
 module.exports = async (context, req) => {
   logConfig({
@@ -17,11 +17,10 @@ module.exports = async (context, req) => {
 
   if (!req.body) {
     logger('error', ['Please pass a request body'])
-    await setE18Stats(undefined, undefined, { status: 'failed', error: 'Please pass a request body' })
     return new HTTPError(400, 'Please pass a request body').toJSON()
   }
 
-  const { service, method, secure, options, system, template, parameter, jobId, taskId } = req.body
+  const { service, method, secure, options, system, template, parameter, e18 } = req.body
   try {
     if (!service && !method && !system && !template) {
       throw new HTTPError(400, 'Missing required parameters. Check documentation')
@@ -48,14 +47,14 @@ module.exports = async (context, req) => {
       data = { ...metadata, extras: options }
     }
     const result = await callArchive(data)
-    await setE18Stats(jobId, taskId, { status: 'completed', data: result })
+    await roadRunner(e18, { status: 'completed', data: result })
     return getResponseObject(result)
   } catch (error) {
     if (error.response && error.response.data) {
       const { data } = error.response
-      await setE18Stats(jobId, taskId, { status: 'failed', error: data, message: data.message })
+      await roadRunner(e18, { status: 'failed', error: data, message: data.message })
     } else {
-      await setE18Stats(jobId, taskId, { status: 'failed', error, message: error.message })
+      await roadRunner(e18, { status: 'failed', error, message: error.message })
     }
 
     if (error instanceof HTTPError) {

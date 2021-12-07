@@ -42,9 +42,5 @@ module.exports = {
   VIEW_PERMISSION: {
     excludeSchools: ['Elev fagskolen', 'Elev skolen for sosiale og medisinske institusjoner', 'Elev Kompetansebyggeren'],
     excludeEnterprises: ['Seksjon for pedagogisk psykologisk tjeneste', 'Seksjon for oppfølgingstjeneste']
-  },
-  E18: {
-    URL: process.env.E18_URL,
-    KEY: process.env.E18_KEY || 'secret secret key'
   }
 }

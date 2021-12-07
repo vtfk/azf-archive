@@ -331,10 +331,17 @@ Currently available archive templates
     "DB_PASSWORD": "db-pass",
     "DB_SERVER": "db-server",
     "DB_DATABASE": "db-db",
-    "DB_TABLE": "db-table"
+    "DB_TABLE": "db-table",
+    "E18_URL": "https://e18url.net", // optional
+    "E18_KEY": "secret token" // optional
   }
 }
 ```
+
+### E18
+
+To support E18, add `E18_URL` and `E18_KEY`
+
 ## Deploy
 
 ### Azure

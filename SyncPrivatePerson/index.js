@@ -1,10 +1,10 @@
 const { logConfig, logger } = require('@vtfk/logger')
+const { create: roadRunner } = require('@vtfk/e18')
 const getDsfData = require('../lib/dsf/get-dsf-data')
 const repackDsfObject = require('../lib/dsf/repackDsfObject')
 const getResponseObject = require('../lib/get-response-object')
 const syncPrivatePerson = require('../lib/archive/syncPrivatePerson')
 const HTTPError = require('../lib/http-error')
-const setE18Stats = require('../lib/set-e18-stats')
 
 module.exports = async function (context, req) {
   logConfig({
@@ -17,13 +17,12 @@ module.exports = async function (context, req) {
 
   if (!req.body) {
     logger('error', ['Please pass a request body'])
-    await setE18Stats(undefined, undefined, { status: 'failed', error: 'Please pass a request body' })
     return new HTTPError(400, 'Please pass a request body').toJSON()
   }
 
   let result = {}
 
-  const { ssn, oldSsn, birthdate, firstName, lastName, jobId, taskId } = req.body
+  const { ssn, oldSsn, birthdate, firstName, lastName, e18 } = req.body
   try {
     if (!ssn && !(birthdate && firstName && lastName)) {
       throw new HTTPError(400, 'Missing required parameter "ssn" or "birthdate, firstname, lastname"')
@@ -42,14 +41,14 @@ module.exports = async function (context, req) {
     result.privatePerson = await syncPrivatePerson(result.dsfPerson)
 
     result = { msg: 'Succesfully synced elevmappe', ...result }
-    await setE18Stats(jobId, taskId, { status: 'completed', data: result })
+    await roadRunner(e18, { status: 'completed', data: result })
     return getResponseObject(result)
   } catch (error) {
     if (error.response && error.response.data) {
       const { data } = error.response
-      await setE18Stats(jobId, taskId, { status: 'failed', error: data, message: data.message })
+      await roadRunner(e18, { status: 'failed', error: data, message: data.message })
     } else {
-      await setE18Stats(jobId, taskId, { status: 'failed', error, message: error.message })
+      await roadRunner(e18, { status: 'failed', error, message: error.message })
     }
 
     if (error instanceof HTTPError) {
