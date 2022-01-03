@@ -7,7 +7,7 @@
       "FirstName": "<<<firstName>>>",
       "LastName": "<<<lastName>>>",
       "PersonalIdNumber": "<<<ssn>>>",
-      "ExternalID": "<<<ssn>>>",
+      "ExternalID": "",
       "PrivateAddress": {
         "StreetAddress": "<<<streetAddress>>>",
         "ZipCode": "<<<zipCode>>>",
