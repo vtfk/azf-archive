@@ -28,15 +28,15 @@
           "Category": "1",
           "Format": "<<<fileFormat>>>",
           "Status": "F",
-          "Title": "IOP - Individuell opplæringsplan",
+          "Title": "<<<titleType>>> - Individuell opplæringsplan",
           "VersionFormat": "P"
         }
       ],
       "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
       "ResponsibleEnterpriseNumber": "<<<organizationNumber>>>",
       "Status": "R",
-      "Title": "IOP - Individuell opplæringsplan",
-      "UnofficialTitle": "IOP - Individuell opplæringsplan - <<<displayName>>> - versjon <<<versionNumber>>>"
+      "Title": "<<<titleType>>> - Individuell opplæringsplan",
+      "UnofficialTitle": "<<<titleType>>> - Individuell opplæringsplan - <<<displayName>>> - versjon <<<versionNumber>>>"
     }
   },
   "data": {
@@ -48,6 +48,7 @@
     "base64": "heihei",
     "fileFormat": "pdf",
     "displayName": "Ola Nordmann",
-    "versionNumber": "4.1"
+    "versionNumber": "4.1",
+    "titleType": "IOP | Halvårsrapport IOP | Årsrapport IOP"
   }
 }
