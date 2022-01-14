@@ -47,14 +47,14 @@ module.exports = async (context, req) => {
       data = { ...metadata, extras: options }
     }
     const result = await callArchive(data)
-    await roadRunner(e18, { status: 'completed', data: result })
+    await roadRunner(e18, { status: 'completed', data: result }, context)
     return getResponseObject(result)
   } catch (error) {
     if (error.response && error.response.data) {
       const { data } = error.response
-      await roadRunner(e18, { status: 'failed', error: data, message: data.message })
+      await roadRunner(e18, { status: 'failed', error: data, message: data.message }, context)
     } else {
-      await roadRunner(e18, { status: 'failed', error, message: error.message })
+      await roadRunner(e18, { status: 'failed', error, message: error.message }, context)
     }
 
     if (error instanceof HTTPError) {

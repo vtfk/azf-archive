@@ -333,14 +333,15 @@ Currently available archive templates
     "DB_DATABASE": "db-db",
     "DB_TABLE": "db-table",
     "E18_URL": "https://e18url.net", // optional
-    "E18_KEY": "secret token" // optional
+    "E18_KEY": "secret token", // optional
+    "E18_SYSTEM": "p360" // optional
   }
 }
 ```
 
 ### E18
 
-To support E18, add `E18_URL` and `E18_KEY`
+To support E18, add `E18_URL`, `E18_KEY` and `E18_SYSTEM`
 
 ## Deploy
 
