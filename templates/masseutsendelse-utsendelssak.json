@@ -1,0 +1,24 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "CreateCase",
+    "parameter": {
+      "CaseType": "Sak",
+      "Title": "Masseutsendelse - <<<title>>>",
+      "UnofficialTitle": "Masseutsendelse - <<<title>>>",
+      "Status": "B",
+      "JournalUnit": "Sentralarkiv",
+      "FiledOnPaper": false,
+      "AccessCode": "<<<accessCode>>>",
+      "AccessGroup": "<<<accessGroup>>>",
+      "ResponsibleEnterpriseRecno": 506,
+      "ResponsiblePersonEmail": "<<<email>>>"
+    }
+  },
+  "data": {
+    "accessCode": "U",
+    "accessGroup": "Alle",
+    "title": "Henvisning om at nabotomta skal sprenges i 1000 bitar",
+    "email": "bjarne.betjent@vtfk.no"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "<<<accessCode>>>",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>",
+      "Category": "Dokument ut",
+      "DocumentDate": "<<<date>>>",
+      "Paragraph": "<<<paragraph>>>",
+      "ResponsibleEnterpriseRecno": "<<<responsibleEnterpriseRecno>>>",
+      "Status": "R",
+      "Title": "<<<title>>>",
+      "UnofficialTitle": "<<<title>>>"
+    }
+  },
+  "data": {
+    "accessGroup": "Elev vgs",
+    "accessCode": "U",
+    "caseNumber": "30/00000",
+    "date": "2021-09-27",
+    "title": "Saken om kjeks",
+    "responsibleEnterpriseRecno": "306",
+    "paragraph": "Ingen paragraf gitt"
+  }
+}
