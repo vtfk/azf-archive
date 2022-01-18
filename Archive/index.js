@@ -50,12 +50,8 @@ module.exports = async (context, req) => {
     await roadRunner(e18, { status: 'completed', data: result }, context)
     return getResponseObject(result)
   } catch (error) {
-    if (error.response && error.response.data) {
-      const { data } = error.response
-      await roadRunner(e18, { status: 'failed', error: data, message: data.message }, context)
-    } else {
-      await roadRunner(e18, { status: 'failed', error, message: error.message }, context)
-    }
+    const data = error.response?.data || error instanceof HTTPError ? error.toJSON() : error
+    await roadRunner(e18, { status: 'failed', error: data }, context)
 
     if (error instanceof HTTPError) {
       logger('error', [error.message])
