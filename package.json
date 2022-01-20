@@ -46,7 +46,7 @@
   "dependencies": {
     "@vtfk/e18": "1.2.2",
     "@vtfk/logger": "4.0.1",
-    "@vtfk/p360": "1.1.5",
+    "@vtfk/p360": "1.1.7",
     "axios": "0.24.0",
     "jsonwebtoken": "8.5.1",
     "mssql": "^7.3.0",
