@@ -1,0 +1,13 @@
+{
+  "archive": {
+    "service": "ContactService",
+    "method": "GetEnterprises",
+    "parameter": {
+      "EnterpriseNumber": "<<<orgnr>>>",
+      "Active": "true"
+    }
+  },
+  "data": {
+    "orgnr": "01010101010"
+  }
+}

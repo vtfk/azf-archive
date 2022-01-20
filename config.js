@@ -20,6 +20,9 @@ module.exports = {
     url: process.env.DSF_URL || '',
     saksref: process.env.DSF_SAKSREF || ''
   },
+  BRREG: {
+    url: process.env.BRREG_URL || ''
+  },
   PDF_GENERATOR: {
     url: process.env.PDF_GENERATOR
   },

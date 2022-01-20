@@ -1,6 +1,5 @@
 # IDE
 .idea
-.vscode
 
 # Mac OS
 .DS_Store
@@ -107,3 +106,6 @@ venv.bak/
 __pycache__/
 *.py[cod]
 *$py.class
+
+# VScode drit
+.vscode
