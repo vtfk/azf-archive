@@ -68,16 +68,16 @@ Optional fields:
     "contacts": [ // Optional
       {
         "ssn": "01010101011", // Valid property names are: "ssn", "recno", and "externalId"
-        "role": "mottaker",
+        "role": "Mottaker",
         "isUnofficial": true // Can be true, false, or undefined (undefined => false)
       },
       {
         "recno": "12345",
-        "role": "avsender"
+        "role": "Avsender"
       },
       {
         "externalID": "78787",
-        "role": "avsender",
+        "role": "Avsender",
         "isUnofficial": false
       }
     ]
