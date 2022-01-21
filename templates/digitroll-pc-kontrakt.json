@@ -22,8 +22,9 @@
           "Base64Data": "<<<base64>>>",
           "Category": "1",
           "Format": "PDF",
-          "Status": "<<<formatStatus>>>",
-          "Title": "Avtale om pc"
+          "Status": "F",
+          "Title": "Avtale om pc",
+          "VersionFormat": "<<<versionFormat>>>"
         }
       ],
       "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
