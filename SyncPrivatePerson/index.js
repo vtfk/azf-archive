@@ -52,6 +52,9 @@ module.exports = async function (context, req) {
       return error.toJSON()
     }
     logger('error', [error])
+    if (typeof error === 'object') {
+      error.error = JSON.parse(JSON.stringify(error, Object.getOwnPropertyNames(error)))
+    }
     return getResponseObject(error, 500)
   }
 }
