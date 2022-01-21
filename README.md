@@ -248,6 +248,20 @@ Either updates the **PrivatePerson** with new ssn, if person exists on old ssn, 
 }
 ```
 
+### ```POST /SyncEnterprise```
+- Create **Enterprise** on Brreg-company if one doesn't exist
+- Updates data on **Enterprise** if one already exists
+
+#### `Payload`
+```json
+{
+  "orgnr": "123456789"
+}
+```
+
+Fetches company info from [Brønnøysundregisteret]https://www.brreg.no/)
+
+
 ### ```POST /SyncElevmappe```
 - Create **PrivatePerson** on person if one doesn't exist
 - Updates name and address on **PrivatePerson** if one already exists
