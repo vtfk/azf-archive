@@ -21,7 +21,8 @@ module.exports = {
     saksref: process.env.DSF_SAKSREF || ''
   },
   BRREG: {
-    url: process.env.BRREG_URL || ''
+    url: process.env.BRREG_URL || 'https://data.brreg.no/enhetsregisteret/api/enheter/',
+    branchUrl: process.env.BRREG_BRANCH_URL || 'https://data.brreg.no/enhetsregisteret/api/underenheter/'
   },
   PDF_GENERATOR: {
     url: process.env.PDF_GENERATOR
