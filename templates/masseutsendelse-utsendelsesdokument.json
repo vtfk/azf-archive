@@ -10,7 +10,7 @@
       "Category": "Dokument ut",
       "DocumentDate": "<<<date>>>",
       "Paragraph": "<<<paragraph>>>",
-      "ResponsibleEnterpriseRecno": "<<<responsibleEnterpriseRecno>>>",
+      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
       "Status": "R",
       "Title": "<<<title>>>",
       "UnofficialTitle": "<<<title>>>"
@@ -22,7 +22,7 @@
     "caseNumber": "30/00000",
     "date": "2021-09-27",
     "title": "Saken om kjeks",
-    "responsibleEnterpriseRecno": "306",
+    "responsiblePersonEmail": "kjell.t.ring@vtfk.no",
     "paragraph": "Ingen paragraf gitt"
   }
 }
