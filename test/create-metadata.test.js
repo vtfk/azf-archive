@@ -36,6 +36,33 @@ const dataWithAttachment = {
   }
 }
 
+const dataWithAttachmentWithVersionFormat = {
+  template: {
+    service: 'DocumentService',
+    method: 'CreateDocument',
+    parameter: {
+      ReferenceNumber: '<<<organizationNumber>>>'
+    }
+  },
+  documentData: {
+    organizationNumber: '01234',
+    school: {
+      organizationNumber: '56789'
+    },
+    attachments: [{
+      title: 'Et vedlegg',
+      format: 'docx',
+      base64: 'blablabla',
+      versionFormat: 'tut tut'
+    },
+    {
+      title: 'Et vedlegg 2',
+      format: 'docx',
+      base64: 'blablabla'
+    }]
+  }
+}
+
 const dataWithContacts = {
   template: {
     service: 'DocumentService',
@@ -98,6 +125,12 @@ test('Exception thrown when object token doesn\'t exist', () => {
 test('Attachment is added to metadata, if attachments parameter is defined', () => {
   const metadata = createMetadata(dataWithAttachment)
   expect(metadata.parameter.Files[0].Title).toBe(dataWithAttachment.documentData.attachments[0].title)
+})
+
+test('Attachment is added to metadata with VersionFormat if "versionFormat" is defined, else defaults to "P", and attachments parameter is defined', () => {
+  const metadata = createMetadata(dataWithAttachmentWithVersionFormat)
+  expect(metadata.parameter.Files[0].VersionFormat).toBe(dataWithAttachmentWithVersionFormat.documentData.attachments[0].versionFormat)
+  expect(metadata.parameter.Files[1].VersionFormat).toBe('P')
 })
 
 test('Exception thrown when attachment is missing required property', () => {
