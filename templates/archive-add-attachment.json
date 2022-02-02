@@ -2,7 +2,6 @@
   "archive": {
     "service": "DocumentService",
     "method": "UpdateDocument",
-    "secure": "<<<secure>>>",
     "parameter": {
       "DocumentNumber": "<<<documentNumber>>>",
       "Files": [
@@ -17,7 +16,6 @@
     }
   },
   "data": {
-    "secure": "true",
     "documentNumber": "30/00000-12",
     "base64": "fhdjfhoidshfdsfkjdsb",
     "format": "docx",
