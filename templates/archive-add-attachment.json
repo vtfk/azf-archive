@@ -1,0 +1,27 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "UpdateDocument",
+    "secure": "<<<secure>>>",
+    "parameter": {
+      "DocumentNumber": "<<<documentNumber>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Format": "<<<fileExt>>>",
+          "Status": "F",
+          "Title": "<<<title>>>",
+          "VersionFormat": "<<<versionFormat>>>"
+        }
+      ]
+    }
+  },
+  "data": {
+    "secure": "true",
+    "documentNumber": "30/00000-12",
+    "base64": "fhdjfhoidshfdsfkjdsb",
+    "fileExt": "docx",
+    "title": "En flott fil",
+    "versionFormat": "P"
+  }
+}
