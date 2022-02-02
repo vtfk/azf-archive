@@ -8,7 +8,7 @@
       "Files": [
         {
           "Base64Data": "<<<base64>>>",
-          "Format": "<<<fileExt>>>",
+          "Format": "<<<format>>>",
           "Status": "F",
           "Title": "<<<title>>>",
           "VersionFormat": "<<<versionFormat>>>"
@@ -20,7 +20,7 @@
     "secure": "true",
     "documentNumber": "30/00000-12",
     "base64": "fhdjfhoidshfdsfkjdsb",
-    "fileExt": "docx",
+    "format": "docx",
     "title": "En flott fil",
     "versionFormat": "P"
   }
