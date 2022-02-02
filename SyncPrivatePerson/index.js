@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
 
   let result = {}
 
-  const { ssn, oldSsn, birthdate, firstName, lastName, e18 } = req.body
+  const { ssn, oldSsn, birthdate, firstName, lastName } = req.body
   try {
     if (!ssn && !(birthdate && firstName && lastName)) {
       throw new HTTPError(400, 'Missing required parameter "ssn" or "birthdate, firstname, lastname"')
@@ -41,11 +41,11 @@ module.exports = async function (context, req) {
     result.privatePerson = await syncPrivatePerson(result.dsfPerson)
 
     result = { msg: 'Succesfully synced elevmappe', ...result }
-    await roadRunner(e18, { status: 'completed', data: result }, context)
+    await roadRunner(req, { status: 'completed', data: result }, context)
     return getResponseObject(result)
   } catch (error) {
     const data = error.response?.data || error instanceof HTTPError ? error.toJSON() : error
-    await roadRunner(e18, { status: 'failed', error: data }, context)
+    await roadRunner(req, { status: 'failed', error: data }, context)
 
     if (error instanceof HTTPError) {
       logger('error', [error.message])

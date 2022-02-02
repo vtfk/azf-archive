@@ -20,7 +20,7 @@ module.exports = async (context, req) => {
     return new HTTPError(400, 'Please pass a request body').toJSON()
   }
 
-  const { service, method, secure, options, system, template, parameter, e18 } = req.body
+  const { service, method, secure, options, system, template, parameter } = req.body
   try {
     if (!service && !method && !system && !template) {
       throw new HTTPError(400, 'Missing required parameters. Check documentation')
@@ -47,11 +47,11 @@ module.exports = async (context, req) => {
       data = { ...metadata, extras: options }
     }
     const result = await callArchive(data)
-    await roadRunner(e18, { status: 'completed', data: result }, context)
+    await roadRunner(req, { status: 'completed', data: result }, context)
     return getResponseObject(result)
   } catch (error) {
     const data = error.response?.data || error instanceof HTTPError ? error.toJSON() : error
-    await roadRunner(e18, { status: 'failed', error: data }, context)
+    await roadRunner(req, { status: 'failed', error: data }, context)
 
     if (error instanceof HTTPError) {
       logger('error', [error.message])
