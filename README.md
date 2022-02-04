@@ -321,6 +321,7 @@ Currently available archive templates
 | elevmappe | update-private-person | nb | Update **PrivatePerson** in *P360* contact register.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/elevmappe-update-private-person.json)
 | iop | hemmelig | nb | Sends a auto generate PDF to school to distribute this manully.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/iop-hemmelig.json)
 | iop | document | nb | Archive an IOP on students elevmappe.<br>[JSON template and data format available here](https://github.com/vtfk/azf-archive/blob/master/templates/iop-document.json)
+| masseutsendelse | utsendelsesdokument | nb | Upload document(s)
 
 ## local.settings.json
 
