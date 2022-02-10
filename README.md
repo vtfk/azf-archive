@@ -349,7 +349,8 @@ Currently available archive templates
     "DB_TABLE": "db-table",
     "E18_URL": "https://e18url.net", // optional
     "E18_KEY": "secret token", // optional
-    "E18_SYSTEM": "p360" // optional
+    "E18_SYSTEM": "p360", // optional
+    "E18_EMPTY_JOB": true // optional
   }
 }
 ```
