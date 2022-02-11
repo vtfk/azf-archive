@@ -14,6 +14,10 @@
           "IsUnofficial": true,
           "ReferenceNumber": "<<<ssn>>>",
           "Role": "Avsender"
+        },
+        {
+          "ReferenceNumber": "<<<schoolOrgnr>>>",
+          "Role": "Mottaker"
         }
       ],
       "DocumentDate": "<<<documentSignedDate>>>",
@@ -23,15 +27,15 @@
           "Category": "1",
           "Format": "PDF",
           "Status": "F",
-          "Title": "Avtale om pc",
+          "Title": "Avtale om leie av bærbar-PC nettbrett (signert)",
           "VersionFormat": "<<<versionFormat>>>"
         }
       ],
       "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
       "ResponsibleEnterpriseNumber": "<<<schoolOrgnr>>>",
       "Status": "J",
-      "Title": "Avtale om pc",
-      "UnofficialTitle": "Avtale om pc"
+      "Title": "Avtale om leie av bærbar-PC nettbrett (signert)",
+      "UnofficialTitle": "Avtale om leie av bærbar-PC nettbrett (signert) - <<<studentName>>>"
     }
   },
   "data": {
@@ -41,6 +45,7 @@
     "base64": "heihei",
     "schoolOrgnr": "98989343",
     "accessGroup": "Elev livets harde skole",
-    "versionFormat": "P"
+    "versionFormat": "P",
+    "studentName": "Bjarte Tjøstheim"
   }
 }
