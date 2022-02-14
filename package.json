@@ -1,6 +1,6 @@
 {
   "name": "azf-archive",
-  "version": "3.13.7",
+  "version": "3.13.8",
   "description": "Azure function for archive operations in P360",
   "main": "index.js",
   "scripts": {
