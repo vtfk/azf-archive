@@ -3,8 +3,8 @@
     "service": "DocumentService",
     "method": "CreateDocument",
     "parameter": {
-      "AccessCode": "13",
-      "AccessCodeDescription": "Offl §13 jf. fvl §13 første ledd pkt. 1 - taushetsplikt om personlige forhold",
+      "AccessCode": "26",
+      "AccessCodeDescription": "Offl. § 26 femte ledd (unntak for fødselsnr og nummer med tilsvarende funksjon)",
       "AccessGroup": "<<<accessGroup>>>",
       "Archive": "Saksdokument",
       "CaseNumber": "<<<caseNumber>>>",
@@ -31,7 +31,7 @@
           "VersionFormat": "<<<versionFormat>>>"
         }
       ],
-      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "Paragraph": "Offl. § 26 femte ledd",
       "ResponsibleEnterpriseNumber": "<<<schoolOrgnr>>>",
       "Status": "J",
       "Title": "Avtale om leie av bærbar-PC nettbrett (signert)",
