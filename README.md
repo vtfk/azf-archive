@@ -248,6 +248,21 @@ Either updates the **PrivatePerson** with new ssn, if person exists on old ssn, 
 }
 ```
 
+#### `Optional: Do not lookup person in DSF (det sentrale folkeregister). (Requires more info) Useful when person is not registered in DSF`
+Either updates the **PrivatePerson** with the provided data if person exists on ssn, or creates new **PrivatePerson** with the provided data
+```json
+{
+  "ssn": "12345678910",
+	"firstName": "Bjarte",
+	"lastName": "Bjøstheim",
+	"streetAddress": "Gamlehjemmet 44",
+	"zipCode": "1234",
+	"zipPlace": "Jupiter",
+	"addressCode": 0,
+	"skipDSF": true // Must be set to "true" if you need to skip DSF lookup
+}
+```
+
 ### ```POST /SyncEnterprise```
 - Create **Enterprise** on Brreg-company if one doesn't exist
 - Updates data on **Enterprise** if one already exists
@@ -289,11 +304,25 @@ Fetches person info from [Det sentrale folkeregister](https://github.com/vtfk/az
 ```
 
 #### `Optional: With old ssn and new ssn as parameter (for updating ssn on PrivatePerson)`
-Either updates the **PrivatePerson** with new ssn, if person exists on old ssn, or creates new **PrivatePerson** with new ssn
+Either updates the **PrivatePerson** with new ssn, if person exists on old ssn, or creates new **PrivatePerson** with new ssn. Updates or creates **elevmappe** as well. 
 ```json
 {
   "ssn": "01010101011",
   "oldSsn": "01010101010"
+}
+```
+#### `Optional: Do not lookup person in DSF (det sentrale folkeregister). (Requires more info) Useful when person is not registered in DSF`
+Either updates the **PrivatePerson** with the provided data if person exists on ssn, or creates new **PrivatePerson** with the provided data. Updates or creates **elevmappe** as well. 
+```json
+{
+  "ssn": "12345678910",
+	"firstName": "Bjarte",
+	"lastName": "Bjøstheim",
+	"streetAddress": "Gamlehjemmet 44",
+	"zipCode": "1234",
+	"zipPlace": "Jupiter",
+	"addressCode": 0,
+	"skipDSF": true // Must be set to "true" if you need to skip DSF lookup
 }
 ```
 
