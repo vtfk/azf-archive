@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
 
   let result = {}
 
-  const { ssn, oldSsn, birthdate, firstName, lastName } = req.body
+  const { ssn, oldSsn, birthdate, firstName, lastName, streetAddress, zipCode, zipPlace, addressCode, skipDSF } = req.body
   try {
     if (!ssn && !(birthdate && firstName && lastName)) {
       throw new HTTPError(400, 'Missing required parameter "ssn" or "birthdate, firstname, lastname"')
@@ -34,13 +34,30 @@ module.exports = async function (context, req) {
       throw new HTTPError(400, 'Parameter "oldSsn" must be in combination with "ssn')
     }
 
-    const dsfSearchParameter = ssn ? oldSsn ? { ssn, oldSsn } : { ssn } : { birthdate, firstName, lastName }
+    if (!skipDSF) {
+      const dsfSearchParameter = ssn ? oldSsn ? { ssn, oldSsn } : { ssn } : { birthdate, firstName, lastName }
+      const dsfData = await getDsfData(dsfSearchParameter)
+      result.dsfPerson = repackDsfObject(dsfData.RESULT.HOV)
+      result.privatePerson = await syncPrivatePerson(result.dsfPerson)
+    } else {
+      if (!ssn || !firstName || !lastName || !streetAddress || !zipCode || !zipPlace || (!addressCode && addressCode !== 0)) {
+        throw new HTTPError(400, 'When using "skipDSF", you must provide parameters "ssn", "firstname", "lastname", "streetAddress", "zipCode", "zipPlace" and "addressCode"')
+      }
+      const withoutDSF = {
+        ssn,
+        oldSsn: oldSsn || ssn,
+        firstName,
+        lastName,
+        streetAddress,
+        zipCode,
+        zipPlace,
+        addressCode
+      }
+      result.privatePerson = await syncPrivatePerson(withoutDSF)
+      logger('warn', ['Privateperson was created without DSF (flag "skipDSF=true")'])
+    }
 
-    const dsfData = await getDsfData(dsfSearchParameter)
-    result.dsfPerson = repackDsfObject(dsfData.RESULT.HOV)
-    result.privatePerson = await syncPrivatePerson(result.dsfPerson)
-
-    result = { msg: 'Succesfully synced elevmappe', ...result }
+    result = { msg: 'Succesfully synced PrivatePerson', ...result }
     await roadRunner(req, { status: 'completed', data: result }, context)
     return getResponseObject(result)
   } catch (error) {
