@@ -253,13 +253,13 @@ Either updates the **PrivatePerson** with the provided data if person exists on 
 ```json
 {
   "ssn": "12345678910",
-	"firstName": "Bjarte",
-	"lastName": "Bjøstheim",
-	"streetAddress": "Gamlehjemmet 44",
-	"zipCode": "1234",
-	"zipPlace": "Jupiter",
-	"addressCode": 0,
-	"skipDSF": true // Must be set to "true" if you need to skip DSF lookup
+  "firstName": "Bjarte",
+  "lastName": "Bjøstheim",
+  "streetAddress": "Gamlehjemmet 44",
+  "zipCode": "1234",
+  "zipPlace": "Jupiter",
+  "addressCode": 0,
+  "skipDSF": true // Must be set to "true" if you need to skip DSF lookup
 }
 ```
 
@@ -316,13 +316,13 @@ Either updates the **PrivatePerson** with the provided data if person exists on 
 ```json
 {
   "ssn": "12345678910",
-	"firstName": "Bjarte",
-	"lastName": "Bjøstheim",
-	"streetAddress": "Gamlehjemmet 44",
-	"zipCode": "1234",
-	"zipPlace": "Jupiter",
-	"addressCode": 0,
-	"skipDSF": true // Must be set to "true" if you need to skip DSF lookup
+  "firstName": "Bjarte",
+  "lastName": "Bjøstheim",
+  "streetAddress": "Gamlehjemmet 44",
+  "zipCode": "1234",
+  "zipPlace": "Jupiter",
+  "addressCode": 0,
+  "skipDSF": true // Must be set to "true" if you need to skip DSF lookup
 }
 ```
 
