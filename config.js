@@ -28,8 +28,8 @@ module.exports = {
     url: process.env.PDF_GENERATOR
   },
   MAIL: {
-    cc: (process.env.MAIL_CC && process.env.MAIL_CC.split(',')) || [],
-    bcc: (process.env.MAIL_BCC && process.env.MAIL_BCC.split(',')) || [],
+    cc: (process.env.MAIL_CC && process.env.MAIL_CC.split(',')) || false,
+    bcc: (process.env.MAIL_BCC && process.env.MAIL_BCC.split(',')) || false,
     from: process.env.MAIL_FROM || 'noreply@vtfk.no',
     signature: {
       name: 'Arkiveringsroboten',
