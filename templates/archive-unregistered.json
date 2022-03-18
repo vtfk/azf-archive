@@ -1,0 +1,46 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "Archive": "7",    
+      "Title": "<<<title>>>",
+      "DocumentDate": "2019-10-09T06:46:05.952Z",
+      "Category": "I",
+      "Status": "J",
+      "AccessCode": "",
+      "AccessGroup": "Alle",
+      "UnregisteredContacts": [
+        {
+          "Role": "5",
+          "ContactName": "<<<msg>>>"
+        }
+      ],
+      "JournalDate": "2019-10-09T06:46:05.952Z",
+      "DispatchedDate": "2019-10-09T06:46:05.952Z",
+      "Files": [
+        {
+          "Title": "<<<title>>>",
+          "Format": "pdf",
+          "Base64Data": "<<<base64>>>"
+        }
+      ],
+      "AdditionalFields": [
+        {
+          "Name": "Committed",
+          "Value": "-1"
+        },
+        {
+          "Name": "ToOrigin",
+          "Value": "<<<originRecno>>>"
+        }
+      ]
+    }
+  },
+  "data": {
+    "title": "En kul tittel",
+    "msg": "En fin beskrivende beskjed til arkiv, om hvorfor vi ikke fikk til å arkivere automatisk",
+    "base64": "heihei",
+    "originRecno": "200007"
+  }
+}
