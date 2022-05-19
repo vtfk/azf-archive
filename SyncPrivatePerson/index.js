@@ -65,16 +65,17 @@ module.exports = async function (context, req) {
       delete error.config
     }
     const data = error.response?.data || error instanceof HTTPError ? error.toJSON() : error
+    const status = (error.response && error.response.status) || error.statusCode || 500
     await roadRunner(req, { status: 'failed', error: data }, context)
 
     if (error instanceof HTTPError) {
-      logger('error', [error.message])
+      logger('error', [status, error.innerError || error.message])
       return error.toJSON()
     }
-    logger('error', [error])
+    logger('error', [status, error])
     if (typeof error === 'object') {
       error.error = JSON.parse(JSON.stringify(error, Object.getOwnPropertyNames(error)))
     }
-    return getResponseObject(error, 500)
+    return getResponseObject(error, status)
   }
 }

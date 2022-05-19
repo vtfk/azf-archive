@@ -55,16 +55,17 @@ module.exports = async (context, req) => {
     }
     const data = error instanceof HTTPError ? error.toJSON() : error
     const message = error instanceof HTTPError ? error.message : (error.message || undefined)
+    const status = (error.response && error.response.status) || error.statusCode || 500
     await roadRunner(req, { status: 'failed', error: data, message }, context)
 
     if (message) {
-      logger('error', [message])
+      logger('error', [status, message])
       return error.toJSON()
     }
-    logger('error', [error])
+    logger('error', [status, error])
     if (typeof error === 'object') {
       error.error = JSON.parse(JSON.stringify(error, Object.getOwnPropertyNames(error)))
     }
-    return getResponseObject(error, 500)
+    return getResponseObject(error, status)
   }
 }
