@@ -1,0 +1,39 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "<<<accessCode>>>",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>",
+      "Category": "Internt notat / e-post UTEN oppfølging",
+      "DocumentDate": "<<<publishedDate>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "PNG",
+          "Status": "F",
+          "Title": "Prosjektstatus - <<<projectName>>> - <<<publishedDate>>>",
+          "VersionFormat": "P"
+        }
+      ],
+      "Paragraph": "<<<paragraph>>>",
+      "ResponsiblePersonEmail": "<<<projectOwnerEmail>>>",
+      "Status": "J",
+      "Title": "Prosjektstatus - <<<projectName>>> - <<<publishedDate>>>",
+      "UnofficialTitle": "Prosjektstatus - <<<projectName>>> - <<<publishedDate>>>"
+    }
+  },
+  "data": {
+    "accessGroup": "Elev vgs",
+    "accessCode": "U",
+    "caseNumber": "30/00000",
+    "publishedDate": "2021-09-27",
+    "base64": "heihei",
+    "projectOwnerEmail": "Saken om kjeks@heihieh.no",
+    "paragraph": "Ingen paragraf gitt",
+    "projectName": "Tut tut"
+  }
+}
