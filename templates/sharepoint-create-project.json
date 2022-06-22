@@ -1,0 +1,19 @@
+{
+  "archive": {
+    "service": "ProjectService",
+    "method": "CreateProject",
+    "parameter": {
+      "Title": "<<<projectTitle>>>",
+      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
+      "ExternalID": {
+        "Id": "<<<siteURL>>>",
+        "Type": "SharePoint Site"
+      } 
+    }
+  },
+  "data": {
+    "projectTitle": "Test prosjekt-tittel",
+    "responsiblePersonEmail": "Nordmann@no.no",
+    "siteURL": "https://jalla.balla.no"
+  }
+}

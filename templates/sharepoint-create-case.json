@@ -1,0 +1,24 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "CreateCase",
+    "parameter": {
+      "CaseType": "Sak",
+      "Project": "<<<projectNumber>>>",
+      "Title": "<<<caseTitle>>>",
+      "UnofficialTitle": "<<<caseTitle>>>",
+      "Status": "R",
+      "FiledOnPaper": false,
+      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Paragraph": "<<<paragraph>>>"
+    }
+  },
+  "data": {
+    "caseTitle": "Hei",
+    "projectNumber": "23-2",
+    "responsiblePersonEmail": "jallaballa@vtfk.no",
+    "accessGroup": "Alle",
+    "paragraph": "13"
+  }
+}

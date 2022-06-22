@@ -1,0 +1,18 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "GetCases",
+    "parameter": {
+      "ExternalID": {
+        "Id": "<<<caseExternalId>>>",
+        "Type": "SharePoint Case"
+      }
+    },
+    "options": {
+      "limit": 1
+      }
+  },
+  "data": {
+    "caseExternalId":"unique id"
+  }
+}

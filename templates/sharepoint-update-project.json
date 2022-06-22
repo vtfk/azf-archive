@@ -1,0 +1,16 @@
+{
+  "archive": {
+    "service": "ProjectService",
+    "method": "UpdateProject",
+    "parameter": {
+      "Title": "<<<projectTitle>>>",
+      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
+      "ProjectNumber":"<<<projectNumber>>>"
+    }
+  },
+  "data": {
+    "projectTitle": "Test prosjekt-tittel",
+    "responsiblePersonEmail": "Nordmann@no.no",
+    "projectNumber": "00-00"
+  }
+}
