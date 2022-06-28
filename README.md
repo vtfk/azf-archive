@@ -292,10 +292,10 @@ Fetches company info from [Brønnøysundregisteret]https://www.brreg.no/)
 
 
 ### ```POST /SyncElevmappe```
-- Create **PrivatePerson** on person if one doesn't exist
+- Creates **PrivatePerson** on person if one doesn't exist
 - Updates name and address on **PrivatePerson** if one already exists
 - Updates ssn for **PrivatePerson** if parameter *oldSsn* is passed, or if new ssn is found in `Det sentrale folkeregister`
-- Create **Elevmappe** on user if one doesn't exist
+- Creates **Elevmappe** on user if one doesn't exist
 - Updates case contact and name on **Elevmappe** if one already exists
 - Grants reading permissions to *newSchools* on relevant documents in **Elevmappe** if parameter *newSchools* is passed
 - Sends email alert to archive department if there is need for manual operations
@@ -349,9 +349,44 @@ Must be array of school(s), where each school is the official name of the school
 }
 ```
 
-## Templates
+### ```POST /SyncSharePointSite```
+Endpoint for connecting a Sharepoint site to a archive-project, and a list || documentLibrary || folder to a archive-case
 
-Currently available archive templates
+The Sharepoint site is connected to a archive-projectNumber. The list || documentLibrary || folder is connected to a archive case through the archive-field **externalId**
+
+- Creates **Project** in archive if parameter `projectNumber` is not provided, or set to the string 'nei'.
+- Creates **Case** in archive if the Sharepoint-id of the list || documentLibrary || folder does not exist as externalId in archive - or fetches the caseNumber if it exists.
+- Returns metadata on **Project** and **Case** from archive
+
+
+#### `Example payload`
+```json
+{
+  "siteUrl": "https://<domain>.sharepoint.com/sites/<site-name>",
+  "projectNumber": "{existing project number} || ${'nei'} || ${undefined}", // Undefined and 'nei' creates new project in archive
+  "projectTitle": "Something that describes the Sharepoint site",
+  "responsiblePersonEmail": "person@domain.com", // Must have access to archive - will throw error if user email is not found on a user in archive
+  "caseExternalId": "{siteUrl}-{type}-{guid}", // TODO: decide common structure - externalId MUST be unique
+  "caseTitle": "Something that describes the list || documentLibrary || folder",
+  "accessGroup": "Elev gul skole", // OPTIONAL. Defaults to "Alle"
+  "paragraph": "Offntl. 13.3" // OPTIONAL. Defaults to ""
+}
+```
+#### `Response`
+```json
+{
+  "msg": "Succesfully synced SharePointSite",
+  "projectNumber": "24-1",
+  "projectTitle": "Bygging av nye fylkeskommuner",
+  "caseNumber": "22/00013",
+  "caseTitle": "Arkivering fra Sharepoint til P360"
+}
+```
+
+## Templates
+[All templates](https://github.com/vtfk/azf-archive/blob/master/templates)
+
+Currently available archive templates [All templates](https://github.com/vtfk/azf-archive/blob/master/templates)
 
 | System | Template | Languages | Description |
 |--------|----------|-----------|-------------|
