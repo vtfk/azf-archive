@@ -356,6 +356,8 @@ The Sharepoint site is connected to a archive-projectNumber. The list || documen
 
 - Creates **Project** in archive if parameter `projectNumber` is not provided, or set to the string 'nei'.
 - Creates **Case** in archive if the Sharepoint-id of the list || documentLibrary || folder does not exist as externalId in archive - or fetches the caseNumber if it exists.
+- Does **not** update case or project metadata in archive. This is for avoiding conflicting changes if archivists change metadata directly in archive.
+- If project exists - new case will inherit responsible person from the project, even if you specify a different responsible person this in the payload. This is for avoiding conflicting changes if archivists change metadata directly in archive.
 - Returns metadata on **Project** and **Case** from archive
 
 
