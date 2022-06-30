@@ -11,7 +11,11 @@
       "FiledOnPaper": false,
       "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
       "AccessGroup": "<<<accessGroup>>>",
-      "Paragraph": "<<<paragraph>>>"
+      "Paragraph": "<<<paragraph>>>",
+      "ExternalID": {
+        "Id": "<<<caseExternalId>>>",
+        "Type": "SharePoint Case"
+      }
     }
   },
   "data": {
@@ -19,6 +23,7 @@
     "projectNumber": "23-2",
     "responsiblePersonEmail": "jallaballa@vtfk.no",
     "accessGroup": "Alle",
-    "paragraph": "13"
+    "paragraph": "13",
+    "caseExternalId": "siteUrl-type-guid"
   }
 }
