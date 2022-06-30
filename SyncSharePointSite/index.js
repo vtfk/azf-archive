@@ -13,17 +13,16 @@ module.exports = async function (context, req) {
     }
   })
 
-  const { siteURL, projectTitle, responsiblePersonEmail, projectNumber, caseExternalId, caseTitle, accessGroup, paragraph } = req.body
+  const { siteUrl, projectTitle, responsiblePersonEmail, projectNumber, caseExternalId, caseTitle, accessGroup, paragraph } = req.body
   const input = {
-    siteURL, projectTitle, responsiblePersonEmail, projectNumber, caseExternalId, caseTitle, accessGroup, paragraph
+    siteUrl, projectTitle, responsiblePersonEmail, projectNumber, caseExternalId, caseTitle, accessGroup, paragraph
   }
-  let result = {}
   try {
-    if (!siteURL) {
-      throw new HTTPError(400, 'Missing required parameter "siteURL"')
+    if (!siteUrl) {
+      throw new HTTPError(400, 'Missing required parameter "siteUrl"')
     }
-    if (typeof siteURL !== 'string') {
-      throw new HTTPError(400, '"siteURL" must be string')
+    if (typeof siteUrl !== 'string') {
+      throw new HTTPError(400, '"siteUrl" must be string')
     }
     if (!caseTitle) {
       throw new HTTPError(400, 'Missing required parameter "caseTitle"')
@@ -40,12 +39,21 @@ module.exports = async function (context, req) {
     if (!responsiblePersonEmail) {
       throw new HTTPError(400, 'Missing required parameter "responsiblePersonEmail"')
     }
-    logger('info', `Trying to sync SharePointSite: SiteURL: ${siteURL}`)
+    if (typeof responsiblePersonEmail !== 'string') {
+      throw new HTTPError(400, '"responsiblePersonEmail" must be string')
+    }
+    if (!caseExternalId) {
+      throw new HTTPError(400, 'Missing required parameter "caseExternalId"')
+    }
+    if (typeof caseExternalId !== 'string') {
+      throw new HTTPError(400, '"caseExternalId" must be string')
+    }
+
+    logger('info', `Trying to sync SharePointSite: SiteUrl: ${siteUrl}`)
     const res = await syncSharePointSite(input)
-    logger('info', `Succesfully synced SharePointSite. SiteURL: ${siteURL}`)
-    result = { msg: 'Succesfully synced SharePointSite', ...res }
-    await roadRunner(req, { status: 'completed', data: result }, context)
-    return getResponseObject(result)
+    logger('info', `Succesfully synced SharePointSite. SiteUrl: ${siteUrl}`)
+    await roadRunner(req, { status: 'completed', data: res }, context)
+    return getResponseObject(res)
   } catch (error) {
     if (typeof error === 'object') {
       delete error.config
