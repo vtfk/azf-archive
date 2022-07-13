@@ -60,7 +60,6 @@ module.exports = async (context, req) => {
 
     if (message) {
       logger('error', [status, message])
-      return error.toJSON()
     }
     logger('error', [status, error])
     if (typeof error === 'object') {
