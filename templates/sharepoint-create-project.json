@@ -4,16 +4,11 @@
     "method": "CreateProject",
     "parameter": {
       "Title": "<<<projectTitle>>>",
-      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
-      "ExternalID": {
-        "Id": "<<<siteUrl>>>",
-        "Type": "SharePoint Site"
-      } 
+      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>"
     }
   },
   "data": {
     "projectTitle": "Test prosjekt-tittel",
-    "responsiblePersonEmail": "Nordmann@no.no",
-    "siteUrl": "https://jalla.balla.no"
+    "responsiblePersonEmail": "Nordmann@no.no"
   }
 }
