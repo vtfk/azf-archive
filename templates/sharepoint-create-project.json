@@ -6,7 +6,7 @@
       "Title": "<<<projectTitle>>>",
       "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
       "ExternalID": {
-        "Id": "<<<siteURL>>>",
+        "Id": "<<<siteUrl>>>",
         "Type": "SharePoint Site"
       } 
     }
@@ -14,6 +14,6 @@
   "data": {
     "projectTitle": "Test prosjekt-tittel",
     "responsiblePersonEmail": "Nordmann@no.no",
-    "siteURL": "https://jalla.balla.no"
+    "siteUrl": "https://jalla.balla.no"
   }
 }
