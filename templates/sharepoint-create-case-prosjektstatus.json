@@ -1,0 +1,29 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "CreateCase",
+    "parameter": {
+      "CaseType": "Sak",
+      "Project": "<<<projectNumber>>>",
+      "Title": "<<<caseTitle>>> - funker det?",
+      "UnofficialTitle": "<<<caseTitle>>>",
+      "Status": "R",
+      "FiledOnPaper": false,
+      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Paragraph": "<<<paragraph>>>",
+      "ExternalID": {
+        "Id": "<<<caseExternalId>>>",
+        "Type": "SharePoint Case"
+      }
+    }
+  },
+  "data": {
+    "caseTitle": "Hei",
+    "projectNumber": "23-2",
+    "responsiblePersonEmail": "jallaballa@vtfk.no",
+    "accessGroup": "Alle",
+    "paragraph": "13",
+    "caseExternalId": "siteUrl-type-guid"
+  }
+}
