@@ -5,7 +5,7 @@
     "parameter": {
       "CaseType": "Sak",
       "Project": "<<<projectNumber>>>",
-      "Title": "<<<caseTitle>>> - funker det?",
+      "Title": "<<<caseTitle>>>",
       "UnofficialTitle": "<<<caseTitle>>>",
       "Status": "R",
       "FiledOnPaper": false,
