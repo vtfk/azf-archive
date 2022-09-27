@@ -25,7 +25,7 @@
       "Category": "Dokument ut",
       "Contacts": [
         {
-          "ReferenceNumber": "200065",
+          "ReferenceNumber": "recno:200065",
           "Role": "Avsender"
         },
         {
@@ -45,7 +45,7 @@
         }
       ],
       "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
-      "ResponsibleEnterpriseNumber": "200065",
+      "ResponsibleEnterpriseRecno": "200065",
       "Status": "R",
       "Title": "Informasjonsbrev ved godkjent lærekontrakt",
       "UnofficialTitle": "Informasjonsbrev ved godkjent lærekontrakt - <<<studentName>>>",
