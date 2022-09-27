@@ -1,0 +1,65 @@
+{
+  "pdf": {
+    "system": "vigo",
+    "template": "KONTRAKT-response",
+    "language": "nb",
+    "type": "2",
+    "version": "B",
+    "data": {
+      "created": {
+        "timestamp": "date"
+      },
+      "studentName": "<<<studentName>>>",
+      "streetAddress": "<<<streetAddress>>>",
+      "zipCode": "<<<zipCode>>>",
+      "zipPlace": "<<<zipPlace>>>",
+      "department": "Seksjon for fag- og yrkesopplæring"
+    }
+  },
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessGroup": "Fagopplæring",
+      "Category": "Dokument ut",
+      "Contacts": [
+        {
+          "ReferenceNumber": "200065",
+          "Role": "Avsender"
+        },
+        {
+          "ReferenceNumber": "<<<ssn>>>",
+          "Role": "Mottaker"
+        }
+      ],
+      "DocumentDate": "<<<documentDate>>>",
+      "Files": [
+        {
+          "Base64Data": "base64",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "Informasjonsbrev ved godkjent lærekontrakt",
+          "VersionFormat": "A"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsibleEnterpriseNumber": "200065",
+      "Status": "R",
+      "Title": "Informasjonsbrev ved godkjent lærekontrakt",
+      "UnofficialTitle": "Informasjonsbrev ved godkjent lærekontrakt - <<<studentName>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  },
+  "data": {
+    "ssn": "12345678910",
+    "studentName": "00000",
+    "streetAddress": "Nedre Gulevei 2",
+    "zipCode": "3134",
+    "zipPlace": "Kebab",
+    "documentDate": "2021-09-27",
+    "caseNumber": "30/00000"
+  }
+}
