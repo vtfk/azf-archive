@@ -29,6 +29,7 @@
           "Role": "Avsender"
         },
         {
+          "IsUnofficial": true,
           "ReferenceNumber": "<<<ssn>>>",
           "Role": "Mottaker"
         }
