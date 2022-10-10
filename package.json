@@ -47,7 +47,7 @@
   "dependencies": {
     "@vtfk/e18": "2.1.5",
     "@vtfk/logger": "4.1.2",
-    "@vtfk/p360": "^1.4.0",
+    "@vtfk/p360": "^1.4.1",
     "axios": "^0.25.0",
     "jsonwebtoken": "8.5.1",
     "vtfk-schools-info": "3.1.1",
