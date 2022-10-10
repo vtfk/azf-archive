@@ -46,7 +46,7 @@
   "homepage": "https://github.com/vtfk/azf-archive#readme",
   "dependencies": {
     "@vtfk/e18": "2.1.5",
-    "@vtfk/logger": "4.1.2",
+    "@vtfk/logger": "4.3.2",
     "@vtfk/p360": "^1.4.1",
     "axios": "^0.25.0",
     "jsonwebtoken": "8.5.1",
