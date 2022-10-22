@@ -48,7 +48,7 @@
     "@vtfk/e18": "2.1.5",
     "@vtfk/logger": "4.3.2",
     "@vtfk/p360": "^1.4.1",
-    "axios": "^0.25.0",
+    "axios": "^0.27.0",
     "jsonwebtoken": "8.5.1",
     "vtfk-schools-info": "3.2.0",
     "xml2js": "0.4.23"
