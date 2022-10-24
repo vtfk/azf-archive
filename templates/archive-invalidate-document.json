@@ -2,14 +2,12 @@
   "archive": {
     "service": "DocumentService",
     "method": "UpdateDocument",
-    "secure": "<<<secure>>>",
     "parameter": {
       "DocumentNumber": "<<<documentNumber>>>",
       "Status": "U"
     }
   },
   "data": {
-    "secure": "true",
     "documentNumber": "30/00000-12"
   }  
 }
