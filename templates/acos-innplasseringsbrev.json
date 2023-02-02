@@ -1,0 +1,78 @@
+{
+  "pdf": {
+    "system": "acos",
+    "template": "innplasseringsbrev",
+    "language": "nb",
+    "type": "2",
+    "version": "B",
+    "data": {
+      "preview": false,
+      "timestamp": "<<<timestamp>>>",
+      "newUnit": "<<<newUnit>>>",
+      "newCounty": "<<<newCounty>>>",
+      "newManager": "<<<newManager>>>",
+      "employeeName": "<<<employeeName>>>",
+      "streetAddress": "<<<streetAddress>>>",
+      "zipCode": "<<<zipCode>>>",
+      "zipPlace": "<<<zipPlace>>>",
+      "sender": "<<<sender>>>",
+      "newOfficeLocation": "<<<newOfficeLocation>>>",
+      "legalClaimDate": "<<<legalClaimDate>>>"
+    }
+  },
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Category": "Dokument ut",
+      "Contacts": [
+        {
+          "ReferenceNumber": "<<<organizationNumber>>>",
+          "Role": "Avsender"
+        },
+        {
+          "ReferenceNumber": "<<<employeeSsn>>>",
+          "Role": "Mottaker"
+        }
+      ],
+      "DocumentDate": "<<<documentDate>>>",
+      "Files": [
+        {
+          "Base64Data": "base64",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "Innplasseringsbrev",
+          "VersionFormat": "A"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsibleEnterpriseNumber": "<<<organizationNumber>>>",
+      "Status": "J",
+      "Title": "Innplasseringsbrev",
+      "UnofficialTitle": "Innplasseringsbrev - <<<employeeName>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  },
+  "data": {
+    "organizationNumber": "00000",
+    "documentDate": "2021-09-27",
+    "caseNumber": "30/00000",
+    "timestamp": "01.01.2024",
+    "newUnit": "Kontoravdelingen",
+    "newCounty": "Vestfold",
+    "newManager": "Sjefen til sjefen",
+    "employeeName": "Ola Bredesen",
+    "streetAddress": "Gata 4",
+    "zipCode": "2012",
+    "zipPlace": "Plassen",
+    "sender": "Toril",
+    "newOfficeLocation": "Vaskekjelleren",
+    "legalClaimDate": "07.01.2024",
+    "accessGroup": "Tilgangsgruppa",
+    "employeeSsn": "0101197054445"
+  }
+}
