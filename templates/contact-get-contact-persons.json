@@ -1,0 +1,13 @@
+{
+  "archive": {
+    "service": "ContactService",
+    "method": "GetContactPersons",
+    "parameter": {
+      "Email": "<<<email>>>",
+      "Active": "true"
+    }
+  },
+  "data": {
+    "email": "hubbabubba@hubben.com"
+  }
+}

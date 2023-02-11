@@ -1,0 +1,11 @@
+{
+  "archive": {
+    "service": "AccessGroupService",
+    "method": "GetAccessGroups",
+    "parameter": {
+      "IncludeMembers": "false",
+      "MaxRows": "3000"
+    }
+  },
+  "data": {}
+}

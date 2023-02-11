@@ -46,5 +46,12 @@ module.exports = {
   VIEW_PERMISSION: {
     excludeSchools: ['Elev fagskolen', 'Elev skolen for sosiale og medisinske institusjoner', 'Elev Kompetansebyggeren'],
     excludeEnterprises: ['Seksjon for pedagogisk psykologisk tjeneste', 'Seksjon for oppfølgingstjeneste']
-  }
+  },
+  GRAPH_CLIENT: {
+    clientId: process.env.GRAPH_CLIENT_ID ?? 'superId',
+    clientSecret: process.env.GRAPH_CLIENT_SECRET ?? 'hemmelig hemmelig',
+    tenantId: process.env.GRAPH_TENANT_ID ?? 'tenant id',
+    scope: process.env.GRAPH_SCOPE ?? 'etSkikkeligSkuup'
+  },
+  ACCESSGROUP_EXCEPTIONS: (process.env.ACCESSGROUP_EXCEPTIONS && JSON.parse(process.env.ACCESSGROUP_EXCEPTIONS)) || {}
 }
