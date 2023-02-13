@@ -17,7 +17,10 @@
       "zipPlace": "<<<zipPlace>>>",
       "sender": "<<<sender>>>",
       "newOfficeLocation": "<<<newOfficeLocation>>>",
-      "legalClaimDate": "<<<legalClaimDate>>>"
+      "legalClaimDate": "<<<legalClaimDate>>>",
+      "newJobTitle": "<<<newJobTitle>>>",
+      "specialOfficeNeeds": "<<<specialOfficeNeeds>>>",
+      "specialOfficeNeedsDescription": "<<<specialOfficeNeedsDescription>>>"
     }
   },
   "archive": {
@@ -73,6 +76,9 @@
     "newOfficeLocation": "Vaskekjelleren",
     "legalClaimDate": "07.01.2024",
     "accessGroup": "Tilgangsgruppa",
-    "employeeSsn": "0101197054445"
+    "employeeSsn": "0101197054445",
+    "newJobTitle": "direktør",
+    "specialOfficeNeeds": "Nei",
+    "specialOfficeNeedsDescription": "Må ha cellekontor"
   }
 }
