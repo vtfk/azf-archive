@@ -23,11 +23,11 @@ module.exports = async function (context, req) {
   }
 
   const result = {}
-  if (req.body.requireAccessGroups === undefined) {
-    req.body.requireAccessGroups = true
+  if (req.body.allowNullValues === undefined) {
+    req.body.allowNullValues = false
   }
 
-  const { ssn, oldSsn, birthdate, firstName, lastName, upn, streetAddress, zipCode, zipPlace, addressCode, skipDSF, requireAccessGroups } = req.body
+  const { ssn, oldSsn, birthdate, firstName, lastName, upn, streetAddress, zipCode, zipPlace, addressCode, skipDSF, allowNullValues } = req.body
 
   try {
     if (!(ssn && upn) && !(upn && birthdate && firstName && lastName)) {
@@ -69,7 +69,7 @@ module.exports = async function (context, req) {
     const manager = await graphRequest(managerUrl)
     logger('info', ['Got manager'])
 
-    result.employee = await syncEmployee(result.privatePerson, upn, manager, requireAccessGroups)
+    result.employee = await syncEmployee(result.privatePerson, upn, manager, allowNullValues)
 
     await roadRunner(req, { status: 'completed', data: result }, context)
     return getResponseObject(result)

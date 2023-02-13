@@ -397,13 +397,13 @@ Either updates the **PrivatePerson** with the provided data if person exists on 
 }
 ```
 
-#### `Optional: With parameter requireAccessGroups`
-Set **requireAccessGroups** to **false**, if you want to continue also when accessGroups and enterprise is not found. **REMARK:** Client itself must handle access groups and enterprise when this parameter is set to false
+#### `Optional: With parameter allowNullValues`
+Set **allowNullValues** to **true**, if you want to continue also when accessGroups and enterprise is not found. **REMARK:** Client itself must handle access groups, enterprise, and manager when this parameter is set to true
 ```json
 {
   "ssn": "01010101011",
   "upn": "per.son@company.no",
-  "requireAccessGroups": false // Defaults to "true"
+  "allowNullValues": false // Defaults to "true"
 }
 ```
 #### `RETURNS`
@@ -441,11 +441,11 @@ Set **requireAccessGroups** to **false**, if you want to continue also when acce
 	"employee": {
     "upn": "per.son@company.no", // Employee userPrincipalName from azure ad
 		"manager": "herr.sjef@company.no", // Registered manager in azure ad
-		"enterpriseNumber": "123456", // NOTE: Can be null if requireAccessGroups is false
-		"enterpriseName": "Seksjon for surr og tull", // NOTE: Can be null if requireAccessGroups is false
+		"enterpriseNumber": "123456", // NOTE: Can be null if allowNullValues is false
+		"enterpriseName": "Seksjon for surr og tull", // NOTE: Can be null if allowNullValues is false
 		"accessGroups": {
-			"personal": "Personal surr og tull", // NOTE: Can be null if requireAccessGroups is false
-			"lonn": "Lønn surr og tull" // NOTE: Can be null if requireAccessGroups is false
+			"personal": "Personal surr og tull", // NOTE: Can be null if allowNullValues is false
+			"lonn": "Lønn surr og tull" // NOTE: Can be null if allowNullValues is false
 		},
 		"recno": 12345, // Recno of employeeProject
 		"projectNumber": "23-12" // ProjectNumber of employeeProject 
