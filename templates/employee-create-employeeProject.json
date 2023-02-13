@@ -1,0 +1,23 @@
+{
+  "archive": {
+    "service": "ProjectService",
+    "method": "CreateProject",
+    "parameter": {
+      "Title": "Personaldokumentasjon - <<<firstName>>> <<<lastName>>>",
+      "AccessGroup": "Alle",
+      "ResponsiblePersonEmail": "<<<managerEmail>>>",
+      "Contacts": [
+        {
+          "Role": "Kontakt",
+          "ReferenceNumber": "<<<ssn>>>"
+        }
+      ]
+    }
+  },
+  "data": {
+    "firstName": "Ola",
+    "lastName": "Nordmann",
+    "ssn": "01010101010",
+    "managerEmail": "sjef@sjefen.no"
+  }
+}

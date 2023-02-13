@@ -41,6 +41,7 @@ module.exports = {
     secret: process.env.MAIL_SECRET || false,
     toArchive: (process.env.MAIL_TO_ARCHIVE && process.env.MAIL_TO_ARCHIVE.split(',')) || [],
     toArchiveAdministrator: (process.env.MAIL_TO_ARCHIVE_ADMINISTRATOR && process.env.MAIL_TO_ARCHIVE_ADMINISTRATOR.split(',')) || [],
+    toArchive7011: (process.env.MAIL_TO_ARCHIVE_7011 && process.env.MAIL_TO_ARCHIVE_7011.split(',')) || [],
     url: process.env.MAIL_URL
   },
   VIEW_PERMISSION: {

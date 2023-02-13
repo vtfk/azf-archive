@@ -349,6 +349,110 @@ Must be array of school(s), where each school is the official name of the school
 }
 ```
 
+### ```POST /SyncEmployee```
+- Creates **PrivatePerson** on person if one doesn't exist
+- Updates name and address on **PrivatePerson** if one already exists
+- Creates **Employee project** on user if one doesn't exist
+- Sends email alert to archive department if there is need for manual operations:
+  - If manager does not have user in P360
+  - If manager have several contactpersons on email-address
+  - If enterprise manager is employed in is missing enterprisenumber
+  - If several enterprises are found on the same enterprisenumber
+  - If enterprise does not have access group of type "Lønn" or "Personal"
+  - If several employee projects are found on one employee
+
+Fetches person info from [Det sentrale folkeregister](https://github.com/vtfk/azf-dsf)
+
+#### `With ssn and upn as parameter`
+```json
+{
+  "ssn": "01010101010",
+  "upn": "per.son@company.no"
+}
+```
+
+#### `With birthdate and name as parameter (only works with one match)`
+```json
+{
+  "birthdate": "010101",
+  "firstName": "Per",
+  "lastName": "Son",
+  "upn": "per.son@company.no"
+}
+```
+
+#### `Optional: Do not lookup person in DSF (det sentrale folkeregister). (Requires more info) Useful when person is not registered in DSF`
+Either updates the **PrivatePerson** with the provided data if person exists on ssn, or creates new **PrivatePerson** with the provided data. Updates or creates **elevmappe** as well. 
+```json
+{
+  "ssn": "12345678910",
+  "firstName": "Bjarte",
+  "lastName": "Bjøstheim",
+  "streetAddress": "Gamlehjemmet 44",
+  "zipCode": "1234",
+  "zipPlace": "Jupiter",
+  "addressCode": 0,
+  "skipDSF": true, // Must be set to "true" if you need to skip DSF lookup
+  "upn": "bjarte.bjostheim@company.no
+}
+```
+
+#### `Optional: With parameter requireAccessGroups`
+Set **requireAccessGroups** to **false**, if you want to continue also when accessGroups and enterprise is not found. **REMARK:** Client itself must handle access groups and enterprise when using this parameter
+```json
+{
+  "ssn": "01010101011",
+  "upn": "per.son@company.no",
+  "requireAccessGroups": false // Defaults to "true"
+}
+```
+#### `RETURNS`
+```json
+{
+	"dsfPerson": {
+		"ssn": "010101010101",
+		"oldSsn": "010101010101", // The same as ssn if no change in DSF, or not specified by client
+		"firstName": "Per",
+		"lastName": "Son",
+		"streetAddress": "Gata 2",
+		"zipCode": "1234",
+		"zipPlace": "STED",
+		"addressType": "VANLIG BOSATT",
+		"addressCode": 0,
+		"residentialAddress": {
+			"ADR": "Gata 2",
+			"POSTN": "1234",
+			"POSTS": "STED"
+		}
+	},
+	"privatePerson": {
+		"ssn": "010101010101",
+		"oldSsn": "010101010101",
+		"firstName": "Per",
+		"lastName": "Son",
+		"streetAddress": "Gata 2",
+		"zipCode": "1234",
+		"zipPlace": "STED",
+		"addressCode": 0,
+		"recno": 123456,
+		"updated": false, // If the privatePerson was updated
+		"updatedSsn": false // If the ssn of the privatePerson was updated
+	},
+	"employee": {
+    "upn": "per.son@company.no", // Employee userPrincipalName from azure ad
+		"manager": "herr.sjef@company.no", // Registered manager in azure ad
+		"enterpriseNumber": "123456", // NOTE: Can be null if requireAccessGroups is false
+		"enterpriseName": "Seksjon for surr og tull", // NOTE: Can be null if requireAccessGroups is false
+		"accessGroups": {
+			"personal": "Personal surr og tull", // NOTE: Can be null if requireAccessGroups is false
+			"lonn": "Lønn surr og tull" // NOTE: Can be null if requireAccessGroups is false
+		},
+		"recno": 12345, // Recno of employeeProject
+		"projectNumber": "23-12" // ProjectNumber of employeeProject 
+	}
+}
+```
+
 ### ```POST /SyncSharePointSite```
 Endpoint for connecting a Sharepoint site to a archive-project, and a list || documentLibrary || folder to a archive-case
 

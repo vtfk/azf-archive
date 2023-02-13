@@ -1,0 +1,15 @@
+{
+  "archive": {
+    "service": "ProjectService",
+    "method": "GetProjects",
+    "parameter": {
+      "Title": "Personaldokumentasjon%",
+      "ContactReferenceNumber": "<<<ssn>>>",
+      "IncludeProjectContacts": true,
+      "StatusCode": "Under utføring"
+    }
+  },
+  "data": {
+    "ssn": "01010101010"
+  }
+}

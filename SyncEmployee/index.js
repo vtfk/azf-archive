@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
     return new HTTPError(400, 'Please pass a request body').toJSON()
   }
 
-  let result = {}
+  const result = {}
   if (req.body.requireAccessGroups === undefined) {
     req.body.requireAccessGroups = true
   }
@@ -63,25 +63,13 @@ module.exports = async function (context, req) {
       logger('warn', ['Elevmappe and privateperson was created without DSF (flag "skipDSF=true")'])
     }
 
-    // Get closest manager from azure ad (create app reg)
+    // Get closest manager from azure ad
+    logger('info', ['Fetching manager from Azure AD'])
     const managerUrl = `https://graph.microsoft.com/v1.0/users/${upn}/manager?$select=displayName,companyName,department,onPremisesUserPrincipalName,onPremisesSamAccountName`
     const manager = await graphRequest(managerUrl)
-    result.manager = manager
+    logger('info', ['Got manager'])
 
-    const syncEmployeeRes = await syncEmployee(result.privatePerson, result.manager, requireAccessGroups)
-    result = syncEmployeeRes
-
-    // Get manager from P360
-
-    // Get unitstuff from P360
-    // Get access groups from god knows
-
-    // Check if project exists
-    // Create if it dont
-    // Check metadata if it does
-    // Alert archive if it is multiple projects
-    // Expand result with: unitnumber, accessgroups (names/codes), projectnumber
-    // PROFIT!
+    result.employee = await syncEmployee(result.privatePerson, upn, manager, requireAccessGroups)
 
     await roadRunner(req, { status: 'completed', data: result }, context)
     return getResponseObject(result)
