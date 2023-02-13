@@ -398,7 +398,7 @@ Either updates the **PrivatePerson** with the provided data if person exists on 
 ```
 
 #### `Optional: With parameter requireAccessGroups`
-Set **requireAccessGroups** to **false**, if you want to continue also when accessGroups and enterprise is not found. **REMARK:** Client itself must handle access groups and enterprise when using this parameter
+Set **requireAccessGroups** to **false**, if you want to continue also when accessGroups and enterprise is not found. **REMARK:** Client itself must handle access groups and enterprise when this parameter is set to false
 ```json
 {
   "ssn": "01010101011",
