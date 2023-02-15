@@ -37,7 +37,8 @@
         },
         {
           "ReferenceNumber": "<<<employeeSsn>>>",
-          "Role": "Mottaker"
+          "Role": "Mottaker",
+          "IsUnofficial": true
         }
       ],
       "DocumentDate": "<<<documentDate>>>",
