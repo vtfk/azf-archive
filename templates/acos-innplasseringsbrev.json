@@ -52,8 +52,15 @@
           "VersionFormat": "A"
         }
       ],
+      "Remarks": [
+        {
+          "Title": "Innplasseringssamtalen ble ledet av: <<<responsibleName>>>",
+          "RemarkType": "ME"
+        }
+      ],
       "Paragraph": "Offl. § 25",
       "ResponsibleEnterpriseNumber": "<<<organizationNumber>>>",
+      "ResponsiblePersonEmail": "<<<managerUpn>>>",
       "Status": "R",
       "Title": "Innplasseringsbrev",
       "UnofficialTitle": "Innplasseringsbrev - <<<employeeName>>>",
@@ -74,6 +81,8 @@
     "zipCode": "2012",
     "zipPlace": "Plassen",
     "sender": "Toril",
+    "managerUpn": "sjef.sjefesen@vtfk.no",
+    "responsibleName": "Ansvarlig person",
     "newOfficeLocation": "Vaskekjelleren",
     "legalClaimDate": "07.01.2024",
     "accessGroup": "Tilgangsgruppa",
