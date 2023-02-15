@@ -32,10 +32,6 @@
       "Category": "Dokument ut",
       "Contacts": [
         {
-          "ReferenceNumber": "<<<organizationNumber>>>",
-          "Role": "Avsender"
-        },
-        {
           "ReferenceNumber": "<<<employeeSsn>>>",
           "Role": "Mottaker",
           "IsUnofficial": true
