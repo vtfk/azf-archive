@@ -27,7 +27,7 @@
     "service": "DocumentService",
     "method": "CreateDocument",
     "parameter": {
-      "AccessCode": "13",
+      "AccessCode": "25",
       "AccessGroup": "<<<accessGroup>>>",
       "Category": "Dokument ut",
       "Contacts": [
@@ -52,7 +52,7 @@
           "VersionFormat": "A"
         }
       ],
-      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "Paragraph": "Offl. § 25",
       "ResponsibleEnterpriseNumber": "<<<organizationNumber>>>",
       "Status": "R",
       "Title": "Innplasseringsbrev",
