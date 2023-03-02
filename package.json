@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "standard && jest",
+    "test:verbose": "jest --verbose",
     "lint:fix": "standard --fix",
     "test:offline": "standard && jest",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
