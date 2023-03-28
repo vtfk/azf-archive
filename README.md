@@ -277,6 +277,23 @@ Either updates the **PrivatePerson** with the provided data if person exists on 
 }
 ```
 
+#### `Optional: Do not lookup person in DSF (det sentrale folkeregister) AND generate a fake ssn for the preson. (Requires more info) Useful when person is not registered in DSF, and you need to generate a fake ssn`
+Either updates the **PrivatePerson** with the provided data if person exists on the fake ssn AND the lastname of the existing 360-contact and the input-lastname matches, or creates new **PrivatePerson** with the provided data. Updates or creates **elevmappe** as well. 
+```json
+{
+  "generateFakeSsn": true, // // Must be set to "true" if you need want to generate a fake ssn
+  "birthdate": "010188", // Used to generate fake ssn
+  "gender": "010188", // Used to generate fake ssn
+  "firstName": "Bjarte",
+  "lastName": "Bjøstheim",
+  "streetAddress": "Gamlehjemmet 44",
+  "zipCode": "1234",
+  "zipPlace": "Jupiter",
+  "addressCode": 0,
+  "skipDSF": true, // Must be set to "true" if you need to skip DSF lookup
+}
+```
+
 ### ```POST /SyncEnterprise```
 - Create **Enterprise** on Brreg-company if one doesn't exist
 - Updates data on **Enterprise** if one already exists
@@ -337,6 +354,23 @@ Either updates the **PrivatePerson** with the provided data if person exists on 
   "zipPlace": "Jupiter",
   "addressCode": 0,
   "skipDSF": true // Must be set to "true" if you need to skip DSF lookup
+}
+```
+
+#### `Optional: Do not lookup person in DSF (det sentrale folkeregister) AND generate a fake ssn for the preson. (Requires more info) Useful when person is not registered in DSF, and you need to generate a fake ssn`
+Either updates the **PrivatePerson** with the provided data if person exists on the fake ssn AND the lastname of the existing 360-contact and the input-lastname matches, or creates new **PrivatePerson** with the provided data. Updates or creates **elevmappe** as well. 
+```json
+{
+  "generateFakeSsn": true, // // Must be set to "true" if you need want to generate a fake ssn
+  "birthdate": "010188", // Used to generate fake ssn
+  "gender": "010188", // Used to generate fake ssn
+  "firstName": "Bjarte",
+  "lastName": "Bjøstheim",
+  "streetAddress": "Gamlehjemmet 44",
+  "zipCode": "1234",
+  "zipPlace": "Jupiter",
+  "addressCode": 0,
+  "skipDSF": true, // Must be set to "true" if you need to skip DSF lookup
 }
 ```
 

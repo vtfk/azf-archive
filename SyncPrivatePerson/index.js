@@ -4,6 +4,7 @@ const getDsfData = require('../lib/dsf/get-dsf-data')
 const repackDsfObject = require('../lib/dsf/repackDsfObject')
 const getResponseObject = require('../lib/get-response-object')
 const syncPrivatePerson = require('../lib/archive/syncPrivatePerson')
+const generateSsn = require('../lib/archive/generateFakeSsn')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async function (context, req) {
@@ -22,7 +23,8 @@ module.exports = async function (context, req) {
 
   let result = {}
 
-  const { ssn, oldSsn, birthdate, firstName, lastName, streetAddress, zipCode, zipPlace, addressCode, skipDSF } = req.body
+  const { oldSsn, birthdate, firstName, lastName, streetAddress, zipCode, zipPlace, addressCode, gender, skipDSF, generateFakeSsn } = req.body
+  let { ssn } = req.body
   try {
     if (!ssn && !(birthdate && firstName && lastName)) {
       throw new HTTPError(400, 'Missing required parameter "ssn" or "birthdate, firstname, lastname"')
@@ -40,8 +42,14 @@ module.exports = async function (context, req) {
       result.dsfPerson = repackDsfObject(dsfData.RESULT.HOV)
       result.privatePerson = await syncPrivatePerson(result.dsfPerson)
     } else {
-      if (!ssn || !firstName || !lastName || !streetAddress || !zipCode || !zipPlace || (!addressCode && addressCode !== 0)) {
+      if (!generateFakeSsn && (!ssn || !firstName || !lastName || !streetAddress || !zipCode || !zipPlace || (!addressCode && addressCode !== 0))) {
         throw new HTTPError(400, 'When using "skipDSF", you must provide parameters "ssn", "firstname", "lastname", "streetAddress", "zipCode", "zipPlace" and "addressCode"')
+      }
+      if (generateFakeSsn && (!gender || !birthdate || !firstName || !lastName || !streetAddress || !zipCode || !zipPlace || (!addressCode && addressCode !== 0))) {
+        throw new HTTPError(400, 'When using "skipDSF" and "generateFakeSsn, you must provide parameters "birthdate", "gender", "firstname", "lastname", "streetAddress", "zipCode", "zipPlace" and "addressCode"')
+      }
+      if (generateFakeSsn) {
+        ssn = await generateSsn(birthdate, gender, lastName)
       }
       const withoutDSF = {
         ssn,
