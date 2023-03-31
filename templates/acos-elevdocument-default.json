@@ -1,0 +1,48 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Category": "Dokument inn",
+      "Contacts": [
+        {
+          "ReferenceNumber": "<<<studentSsn>>>",
+          "Role": "Avsender",
+          "IsUnofficial": true
+        }
+      ],
+      "DocumentDate": "<<<documentDate>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "<<<documentTitle>>>",
+          "VersionFormat": "A"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsibleEnterpriseNumber": "<<<organizationNumber>>>",
+      "ResponsiblePersonEmail": "<<<responsibleEmail>>>",
+      "Status": "J",
+      "Title": "<<<documentTitle>>>",
+      "UnofficialTitle": "<<<documentTitle>>> - <<<studentName>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  },
+  "data": {
+    "organizationNumber": "00000",
+    "documentDate": "2021-09-27",
+    "caseNumber": "30/00000",
+    "studentName": "Ola Bredesen",
+    "responsibleEmail": "Ansvarlig person",
+    "accessGroup": "Tilgangsgruppa",
+    "studentSsn": "0101197054445",
+    "base64": "blablabla",
+    "documentTitle": "Tittel"
+  }
+}
