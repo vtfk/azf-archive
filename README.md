@@ -438,7 +438,7 @@ Set **allowNullValues** to **true**, if you want to continue also when accessGro
 {
   "ssn": "01010101011",
   "upn": "per.son@company.no",
-  "allowNullValues": false // Defaults to "true"
+  "allowNullValues": true // Defaults to "false"
 }
 ```
 #### `RETURNS`
