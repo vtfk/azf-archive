@@ -71,7 +71,8 @@ Useful for when you do not have sufficient data for automatic archiving (e.g. fo
       {
         "title": "Et vedlegg",
         "format": "docx",
-        "base64": "base64-representation of the file"
+        "base64": "base64-representation of the file",
+        "versionFormat": "A" // Optional. Defaults to "P" (P = production format - document will be converted to pdf, if applicable)
       },
       {
         "title": "Enda et vedlegg",
