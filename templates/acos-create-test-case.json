@@ -1,0 +1,14 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "CreateCase",
+    "parameter": {
+      "CaseType": "Sak",
+      "Title": "Test sak Acos",
+      "UnofficialTitle": "Test sak - Acos",
+      "Status": "B",
+      "ResponsibleEnterpriseRecno": 506
+    }
+  },
+  "data": {}
+}

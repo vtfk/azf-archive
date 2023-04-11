@@ -1,0 +1,36 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "Category": "Dokument inn",
+      "Contacts": [
+        {
+          "ReferenceNumber": "<<<ssn>>>",
+          "Role": "Avsender",
+          "IsUnofficial": true
+        }
+      ],
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "Testdokument fra Acos",
+          "VersionFormat": "A"
+        }
+      ],
+      "Status": "J",
+      "Title": "Testdokument fra Acos",
+      "UnofficialTitle": "Testdokument fra Acos",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  },
+  "data": {
+    "caseNumber": "30/00000",
+    "ssn": "0101197054445",
+    "base64": "blablabla"
+  }
+}
