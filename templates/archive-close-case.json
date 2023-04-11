@@ -1,0 +1,13 @@
+{
+  "archive": {
+    "service": "CaseService",
+    "method": "UpdateCase",
+    "parameter": {
+      "CaseNumber": "<<<caseNumber>>>",
+      "Status": "AS"
+    }
+  },
+  "data": {
+    "caseNumber": "30/00000-1"
+  }
+}
