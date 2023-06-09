@@ -1,0 +1,38 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "Category": "Dokument inn",
+      "Contacts": [
+        {
+          "ReferenceNumber": "<<<orgnr>>>",
+          "Role": "Avsender"
+        }
+      ],
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "<<<title>>>",
+          "VersionFormat": "A"
+        }
+      ],
+      "Status": "J",
+      "Title": "<<<title>>>",
+      "UnofficialTitle": "<<<title>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>",
+      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>"
+    }
+  },
+  "data": {
+    "caseNumber": "30/00000",
+    "orgnr": "0101197054445",
+    "base64": "blablabla",
+    "title": "En tittel",
+    "responsiblePersonEmail": "robot@vtfk.no"
+  }
+}
