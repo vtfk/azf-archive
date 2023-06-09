@@ -25,7 +25,8 @@
       "UnofficialTitle": "<<<title>>>",
       "Archive": "Saksdokument",
       "CaseNumber": "<<<caseNumber>>>",
-      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>"
+      "ResponsiblePersonEmail": "<<<responsiblePersonEmail>>>",
+      "DocumentDate": "<<<documentDate>>>"
     }
   },
   "data": {
@@ -33,6 +34,7 @@
     "orgnr": "0101197054445",
     "base64": "blablabla",
     "title": "En tittel",
-    "responsiblePersonEmail": "robot@vtfk.no"
+    "responsiblePersonEmail": "robot@vtfk.no",
+    "documentDate": "2023-06-09"
   }
 }
