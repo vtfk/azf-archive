@@ -1,10 +1,11 @@
-const { logConfig, logger } = require('@vtfk/logger')
+const { logger } = require('@vtfk/logger')
 const { create: roadRunner } = require('@vtfk/e18')
 const getResponseObject = require('../lib/get-response-object')
 const syncSharePointSite = require('../lib/archive/syncSharePointSite')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async function (context, req) {
+  /*
   logConfig({
     prefix: `${context.invocationId} - ${context.bindingData.sys.methodName}`,
     azure: {
@@ -12,6 +13,7 @@ module.exports = async function (context, req) {
       excludeInvocationId: true
     }
   })
+  */
 
   const { siteUrl, projectTitle, responsiblePersonEmail, projectNumber, caseExternalId, caseTitle, accessGroup, paragraph, caseType } = req.body
   const input = {
