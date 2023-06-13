@@ -1,4 +1,4 @@
-const { logConfig, logger } = require('@vtfk/logger')
+const { logger } = require('@vtfk/logger')
 const { create: roadRunner } = require('@vtfk/e18')
 const getDsfData = require('../lib/dsf/get-dsf-data')
 const repackDsfObject = require('../lib/dsf/repackDsfObject')
@@ -8,6 +8,7 @@ const generateSsn = require('../lib/archive/generateFakeSsn')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async function (context, req) {
+  /*
   logConfig({
     prefix: `${context.invocationId} - ${context.bindingData.sys.methodName}`,
     azure: {
@@ -15,6 +16,7 @@ module.exports = async function (context, req) {
       excludeInvocationId: true
     }
   })
+  */
 
   if (!req.body) {
     logger('error', ['Please pass a request body'])

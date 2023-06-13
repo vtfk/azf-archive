@@ -1,4 +1,4 @@
-const { logConfig, logger } = require('@vtfk/logger')
+const { logger } = require('@vtfk/logger')
 const { create: roadRunner } = require('@vtfk/e18')
 const getBrregData = require('../lib/get-brreg-data')
 const { repackBrreg } = require('../lib/repack-brreg-result')
@@ -7,6 +7,7 @@ const getResponseObject = require('../lib/get-response-object')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async function (context, req) {
+  /*
   logConfig({
     prefix: `${context.invocationId} - ${context.bindingData.sys.methodName}`,
     azure: {
@@ -14,6 +15,7 @@ module.exports = async function (context, req) {
       excludeInvocationId: true
     }
   })
+  */
 
   if (!req.body) {
     logger('error', ['Please pass a request body'])

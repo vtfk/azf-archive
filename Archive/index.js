@@ -1,4 +1,4 @@
-const { logConfig, logger } = require('@vtfk/logger')
+const { logger } = require('@vtfk/logger')
 const { create: roadRunner } = require('@vtfk/e18')
 const callArchive = require('../lib/call-archive')
 const getResponseObject = require('../lib/get-response-object')
@@ -7,6 +7,7 @@ const generateDocument = require('../lib/generate-pdf')
 const HTTPError = require('../lib/http-error')
 
 module.exports = async (context, req) => {
+  /*
   logConfig({
     prefix: `${context.invocationId} - ${context.bindingData.sys.methodName}`,
     azure: {
@@ -14,6 +15,7 @@ module.exports = async (context, req) => {
       excludeInvocationId: true
     }
   })
+  */
 
   if (!req.body) {
     logger('error', ['Please pass a request body'])
@@ -31,11 +33,11 @@ module.exports = async (context, req) => {
     if ((system && !template) || (!system && template) || ((system || template) && !parameter)) {
       throw new HTTPError(400, 'Missing required parameter for template call. Check documentation')
     }
-
+    /*
     logConfig({
       prefix: `${context.invocationId} - ${context.bindingData.sys.methodName} - ${service || system} - ${method || template}${secure ? ' - secure' : ''}`
     })
-
+    */
     let data = { service, method, secure, parameter, extras: options }
     if (system && template) {
       const { pdf, archive } = require(`../templates/${system}-${template}.json`)
