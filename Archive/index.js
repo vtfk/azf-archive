@@ -46,7 +46,7 @@ module.exports = async (context, req) => {
         // TODO: Add support for multiple files
         metadata.parameter.Files[0].Base64Data = await generateDocument({ system, template, ...parameter })
       }
-      data = { ...metadata, extras: options }
+      data = { ...metadata, secure, extras: options }
     }
     const result = await callArchive(data)
     await roadRunner(req, { status: 'completed', data: result }, context)
