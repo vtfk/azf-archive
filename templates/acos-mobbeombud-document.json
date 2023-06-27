@@ -4,7 +4,7 @@
     "method": "CreateDocument",
     "parameter": {
       "AccessCode": "13",
-      "AccessGroup": "Mobbeombudet",
+      "AccessGroup": "Mobbeombud",
       "Category": "Dokument inn",
       "Contacts": [
         {
