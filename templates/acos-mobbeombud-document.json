@@ -1,0 +1,43 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessGroup": "Mobbeombudet",
+      "Category": "Dokument inn",
+      "Contacts": [
+        {
+          "ReferenceNumber": "<<<innsenderSsn>>>",
+          "Role": "Avsender",
+          "IsUnofficial": true
+        }
+      ],
+      "DocumentDate": "<<<documentDate>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "<<<documentTitle>>>",
+          "VersionFormat": "A"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsibleEnterpriseRecno": "<<<enterpriseRecno>>>",
+      "Status": "J",
+      "Title": "<<<documentTitle>>>",
+      "Archive": "Personsensitivt dokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  },
+  "data": {
+    "enterpriseRecno": "00000",
+    "documentDate": "2021-09-27",
+    "caseNumber": "30/00000",
+    "innsenderSsn": "0101197054445",
+    "base64": "blablabla",
+    "documentTitle": "Tittel"
+  }
+}
