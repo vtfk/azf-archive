@@ -1,0 +1,41 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Category": "Internt notat / e-post UTEN oppfølging",
+      "DocumentDate": "<<<documentDate>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "<<<fileTitle>>>",
+          "VersionFormat": "A"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsibleEnterpriseNumber": "<<<schoolEnterpriseNumber>>>",
+      "ResponsiblePersonRecno": "<<<responsiblePersonRecno>>>",
+      "Status": "J",
+      "Title": "<<<title>>>",
+      "UnofficialTitle": "<<<unofficialTitle>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  },
+  "data": {
+    "base64": "fhdjfhdjkfjsdf",
+    "title": "dokument",
+    "fileTitle": "dokument",
+    "unofficialTitle": "dokument huhuhu",
+    "documentDate": "2021-09-27",
+    "caseNumber": "30/00000",
+    "schoolEnterpriseNumber": "202002",
+    "accessGroup": "elev belev",
+    "responsiblePersonRecno": "12345"
+  }
+}
