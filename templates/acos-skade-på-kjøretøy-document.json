@@ -1,0 +1,35 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "Category": "Dokument inn",
+      "Contacts": [
+        {
+          "ReferenceNumber": "<<<ssn>>>",
+          "Role": "Avsender"
+        }
+      ],
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "Skade på kjøretøy",
+          "VersionFormat": "A"
+        }
+      ],
+      "Status": "J",
+      "Title": "Skade på kjøretøy",
+      "UnofficialTitle": "Skade på kjøretøy",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  },
+  "data": {
+    "caseNumber": "30/00000",
+    "ssn": "0101197054445",
+    "base64": "blablabla"
+  }
+}
