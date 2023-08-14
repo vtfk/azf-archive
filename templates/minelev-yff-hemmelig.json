@@ -1,0 +1,50 @@
+{
+  "archive": {
+    "service": "DocumentService",
+    "method": "CreateDocument",
+    "parameter": {
+      "AccessCode": "13",
+      "AccessGroup": "<<<accessGroup>>>",
+      "Category": "Internt notat / e-post MED oppfølging",
+      "Contacts": [
+        {
+          "ReferenceNumber": "<<<organizationNumber>>>",
+          "Role": "Avsender"
+        },
+        {
+          "ReferenceNumber": "<<<organizationNumber>>>",
+          "Role": "Mottaker"
+        }
+      ],
+      "DocumentDate": "<<<documentDate>>>",
+      "Files": [
+        {
+          "Base64Data": "<<<base64>>>",
+          "Category": "1",
+          "Format": "pdf",
+          "Status": "F",
+          "Title": "<<<title>>>",
+          "VersionFormat": "A"
+        }
+      ],
+      "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
+      "ResponsibleEnterpriseNumber": "<<<organizationNumber>>>",
+      "ResponsiblePersonRecno": "<<<responsiblePersonRecno>>>",
+      "Status": "J",
+      "Title": "<<<title>>>",
+      "UnofficialTitle": "<<<unofficialTitle>>>",
+      "Archive": "Saksdokument",
+      "CaseNumber": "<<<caseNumber>>>"
+    }
+  },
+  "data": {
+    "organizationNumber": "00000",
+    "base64": "fjkdsfhkdshkjfds",
+    "accessGroup": "Elev gul skole",
+    "title": "Tittlen",
+    "unofficialTitle": "uosfififkefxszsd tittkdlf",
+    "documentDate": "2021-09-27",
+    "caseNumber": "30/00000",
+    "responsiblePersonRecno": "343566"
+  }
+}

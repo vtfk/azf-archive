@@ -4,15 +4,8 @@
     "method": "CreateDocument",
     "parameter": {
       "AccessCode": "13",
-      "AccessGroup": "Mobbeombud",
-      "Category": "Dokument inn",
-      "Contacts": [
-        {
-          "ReferenceNumber": "<<<innsenderSsn>>>",
-          "Role": "Avsender",
-          "IsUnofficial": true
-        }
-      ],
+      "AccessGroup": "<<<accessGroup>>>",
+      "Category": "Internt notat / e-post UTEN oppfølging",
       "DocumentDate": "<<<documentDate>>>",
       "Files": [
         {
@@ -20,24 +13,28 @@
           "Category": "1",
           "Format": "pdf",
           "Status": "F",
-          "Title": "<<<documentTitle>>>",
+          "Title": "<<<title>>>",
           "VersionFormat": "A"
         }
       ],
       "Paragraph": "Offl. § 13 jf. fvl. § 13 (1) nr.1",
-      "ResponsibleEnterpriseRecno": "<<<enterpriseRecno>>>",
+      "ResponsibleEnterpriseNumber": "<<<schoolEnterpriseNumber>>>",
+      "ResponsiblePersonRecno": "<<<responsiblePersonRecno>>>",
       "Status": "J",
-      "Title": "<<<documentTitle>>>",
+      "Title": "<<<title>>>",
+      "UnofficialTitle": "<<<unofficialTitle>>>",
       "Archive": "Personsensitivt dokument",
       "CaseNumber": "<<<caseNumber>>>"
     }
   },
   "data": {
-    "enterpriseRecno": "00000",
+    "base64": "fhdjfhdjkfjsdf",
+    "title": "dokument",
+    "unofficialTitle": "dokument huhuhu",
     "documentDate": "2021-09-27",
     "caseNumber": "30/00000",
-    "innsenderSsn": "0101197054445",
-    "base64": "blablabla",
-    "documentTitle": "Tittel"
+    "schoolEnterpriseNumber": "202002",
+    "accessGroup": "elev belev",
+    "responsiblePersonRecno": "12345"
   }
 }
