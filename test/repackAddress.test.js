@@ -18,6 +18,6 @@ describe('repackAdress returns as expected when', () => {
   test('address is empty', () => {
     const addressList = []
     const repackedAddress = repackAddress(addressList)
-    expect(repackedAddress).toBe('')
+    expect(repackedAddress).toBe('Ukjent adresse')
   })
 })
