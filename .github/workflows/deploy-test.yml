@@ -35,7 +35,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
 
