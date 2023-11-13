@@ -54,7 +54,7 @@
     "jsonwebtoken": "9.0.2",
     "node-cache": "^5.1.2",
     "vtfk-schools-info": "3.2.0",
-    "xml2js": "^0.5.0"
+    "xml2js": "^0.6.0"
   },
   "devDependencies": {
     "jest": "^29.5.0",
