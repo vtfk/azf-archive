@@ -48,7 +48,7 @@
   "dependencies": {
     "@azure/msal-node": "^1.15.0",
     "@vtfk/e18": "2.1.5",
-    "@vtfk/logger": "4.3.2",
+    "@vtfk/logger": "6.1.0",
     "@vtfk/p360": "^1.4.1",
     "axios": "^0.27.0",
     "jsonwebtoken": "9.0.2",
