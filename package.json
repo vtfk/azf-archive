@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/vtfk/azf-archive#readme",
   "dependencies": {
-    "@azure/msal-node": "^1.15.0",
+    "@azure/msal-node": "^2.0.0",
     "@vtfk/e18": "2.1.5",
     "@vtfk/logger": "4.3.2",
     "@vtfk/p360": "^1.4.1",
